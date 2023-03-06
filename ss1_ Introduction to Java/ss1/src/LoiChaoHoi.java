@@ -1,6 +1,8 @@
+package ss1.src;
+
 import java.util.Scanner;
 
-public class LoiChao {
+public class LoiChaoHoi {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your name: ");

@@ -1,6 +1,8 @@
+package ss1.src;
+
 import java.util.Scanner;
 
-public class DoiTienTe {
+public class DoiTien {
     public static void main(String[] args) {
         double vnd =23000d;
         double usd;
