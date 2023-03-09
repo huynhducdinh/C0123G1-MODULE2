@@ -15,20 +15,20 @@ public class TimGiaTriLonNhat {
         int[][] arr = new int[num][num2];
         for (int i = 0; i < num; i++) {
             for (int j = 0; j < num2; j++) {
-                System.out.println("nhập phần tử cửa :"+i+"-"+j);
+                System.out.println("nhập phần tử cửa :" + i + "-" + j);
                 arr[i][j] = Integer.parseInt(scanner.nextLine());
             }
         }
-        int max =arr[0][0];
-        for (int i = 0; i <arr.length ; i++) {
-            for (int j = 0; j <arr[i].length ; j++) {
-                if (max<arr[i][j]){
-                    max=arr[i][j];
+        int max = arr[0][0];
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                if (max < arr[i][j]) {
+                    max = arr[i][j];
                 }
-                System.out.print(arr[i][j]+" ");
+                System.out.print(arr[i][j] + " ");
             }
             System.out.println("");
         }
-        System.out.println("phần tử lớn nhất trong mảng là "+max);
+        System.out.println("phần tử lớn nhất trong mảng là " + max);
     }
 }

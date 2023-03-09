@@ -7,10 +7,10 @@ import java.util.Scanner;
 
 public class TinhDuongCheo {
     public static void main(String[] args) {
-        System.out.println("Nhập N vào đây");
+        System.out.println("Nhập các các giá trị vào đây");
         Scanner sc = new Scanner(System.in);
         int n = Integer.parseInt(sc.nextLine());
-        System.out.println("nhâpn M vào đây");
+        System.out.println("nhâp giá trị vào đây vào đây");
         int m = Integer.parseInt(sc.nextLine());
         float[][] arr = new float[n][m];
         for (int i = 0; i < n; i++) {
@@ -40,14 +40,15 @@ public class TinhDuongCheo {
         }
         return num;
     }
-    public static  float check1 (float[][] arr){
-        float num =0;
-        float n = arr.length -1;
 
-        for (int i = 0; i < arr.length ; i++) {
-            for (int j = 0; j < arr.length ; j++) {
-                if (j ==n-i){
-                    num+=arr[i][j];
+    public static float check1(float[][] arr) {
+        float num = 0;
+        float n = arr.length - 1;
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                if (j == n - i) {
+                    num += arr[i][j];
                 }
             }
         }

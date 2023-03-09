@@ -8,10 +8,10 @@ public class DemKiTuTrongChuoi {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         System.out.println("Nhập kí tự cần tìm là:");
-        check(str);
+        characterCount(str);
     }
 
-    public static void check(String str) {
+    public static void characterCount(String str) {
         int count = 0;
         Scanner sc = new Scanner(System.in);
         char charr = sc.nextLine().charAt(0);

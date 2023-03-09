@@ -18,7 +18,7 @@ public class HienThiCacLoaiHinh {
             int menu = input.nextInt();
             switch (menu) {
                 case 1:
-                    retangle();
+                    rectangle();
                     break;
                 case 2:
                     squareTriangle();
@@ -33,7 +33,7 @@ public class HienThiCacLoaiHinh {
         } while (flag);
     }
 
-    public static void retangle() {
+    public static void rectangle() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập chiều rộng: ");
         int wide = Integer.parseInt(sc.nextLine());
