@@ -1,8 +1,7 @@
 package Array;
 
 import java.util.Scanner;
-
-public class GiaTriLonNhatTrongMang {
+public class GiaTriNhoNhat {
     public static void main(String[] args) {
         int[] arr = new int[6];
         Scanner sc = new Scanner(System.in);
@@ -20,6 +19,4 @@ public class GiaTriLonNhatTrongMang {
         System.out.println();
         System.out.println("phân tử nhỏ nhất trong mảng là :" + min);
     }
-
-
 }
