@@ -2,7 +2,7 @@ package OOP;
 
 import java.util.Scanner;
 
-public class XayDungLopFan {
+public class LopFan {
     int slow = 1;
     int medium = 2;
     static int fast = 3;
@@ -12,11 +12,11 @@ public class XayDungLopFan {
     double radius = 5;
 
 
-    public XayDungLopFan() {
+    public LopFan() {
     }
 
 
-    public XayDungLopFan(int speed, boolean on, String color, double radius) {
+    public LopFan(int speed, boolean on, String color, double radius) {
         this.speed = speed;
         this.on = on;
         this.color = color;
@@ -88,12 +88,12 @@ public class XayDungLopFan {
     }
 
     public static void main(String[] args) {
-        XayDungLopFan fan = new XayDungLopFan();
+        LopFan fan = new LopFan();
         fan.setOn(true);
         fan.setSpeed(fast);
         fan.setRadius(10);
         fan.setColor("yello");
-        XayDungLopFan fan1 = new XayDungLopFan();
+        LopFan fan1 = new LopFan();
         fan1.setOn(false);
         fan1.setSpeed(fast);
         fan1.setRadius(5);

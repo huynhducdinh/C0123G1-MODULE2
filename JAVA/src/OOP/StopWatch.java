@@ -2,14 +2,14 @@ package OOP;
 
 import java.util.Scanner;
 
-public class XayDungLopStopWatch {
+public class StopWatch {
     long startTime;
     long endTime;
 
-    public XayDungLopStopWatch() {
+    public StopWatch() {
     }
 
-    public XayDungLopStopWatch(long startTime, long endTime) {
+    public StopWatch(long startTime, long endTime) {
         this.startTime = startTime;
         this.endTime = endTime;
     }
@@ -49,7 +49,7 @@ public class XayDungLopStopWatch {
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập 1 bắt đầu tính thời gian");
         int batDau = Integer.parseInt(sc.nextLine());
-        XayDungLopStopWatch stopWatch = new XayDungLopStopWatch();
+        StopWatch stopWatch = new StopWatch();
         if (batDau == 1) {
             stopWatch.start();
         }

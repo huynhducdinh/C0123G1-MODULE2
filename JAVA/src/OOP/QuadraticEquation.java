@@ -2,13 +2,13 @@ package OOP;
 
 import java.util.Scanner;
 
-public class XayDungLopQuadraticEquation {
+public class QuadraticEquation {
     double a, b, c;
 
-    public XayDungLopQuadraticEquation() {
+    public QuadraticEquation() {
     }
 
-    public XayDungLopQuadraticEquation(double a, double b, double c) {
+    public QuadraticEquation(double a, double b, double c) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -65,7 +65,7 @@ public class XayDungLopQuadraticEquation {
         double b = Double.parseDouble(sc.nextLine());
         System.out.println("Nhập giá trị C vào đây");
         double c = Double.parseDouble(sc.nextLine());
-        XayDungLopQuadraticEquation quadraticEquation = new XayDungLopQuadraticEquation(a, b, c);
+        QuadraticEquation quadraticEquation = new QuadraticEquation(a, b, c);
         if (quadraticEquation.getDiscriminant() > 0) {
             System.out.println(quadraticEquation.getRoot1() + " " + quadraticEquation.getRoot2());
         } else if (quadraticEquation.getDiscriminant() == 0) {
