@@ -23,7 +23,7 @@ public class ThemPhanTuTrongMang {
                     }
                 }
             }
-            arr[index]=num;
+            arr[index] = num;
             System.out.println(Arrays.toString(arr));
         }
     }

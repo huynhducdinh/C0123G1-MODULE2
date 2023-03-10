@@ -19,11 +19,8 @@ public class DemKiTuTrongChuoi {
             if (charr == str.charAt(i)) {
                 count++;
             }
-
         }
         System.out.println("các kí tự trong đó là  là :" + count);
-
     }
-
 }
 

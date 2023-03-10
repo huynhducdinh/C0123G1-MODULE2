@@ -15,12 +15,10 @@ public class GopMang {
         for (int i = 0; i < a; i++) {
             System.out.println("nhập giá trị của " + i);
             arr[i] = Integer.parseInt(sc.nextLine());
-
         }
         for (int j = 0; j < b; j++) {
             System.out.println("nhập giá trị của " + j);
             arr1[j] = Integer.parseInt(sc.nextLine());
-
         }
         int[] arr3 = new int[arr.length + arr1.length];
         int sum = 0;
@@ -34,5 +32,4 @@ public class GopMang {
         }
         System.out.println(Arrays.toString(arr3));
     }
-
 }
