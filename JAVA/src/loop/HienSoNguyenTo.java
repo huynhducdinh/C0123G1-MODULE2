@@ -1,6 +1,4 @@
-package Loop;
-
-import java.util.Scanner;
+package loop;
 
 public class HienSoNguyenTo {
     public static void main(String[] args) {
