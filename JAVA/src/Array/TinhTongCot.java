@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class TinhTongCot {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhập N vào đây");
+        System.out.println("Nhập ma trận vào đây");
         int n = Integer.parseInt(sc.nextLine());
-        System.out.println("Nhập M vào đây");
+        System.out.println("Nhập ma trận vào đây");
         int m = Integer.parseInt(sc.nextLine());
         float[][] arr = new float[n][m];
         for (int i = 0; i < n; i++) {
