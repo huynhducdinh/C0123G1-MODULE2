@@ -41,7 +41,7 @@ public class StopWatch {
     }
 
     public void getElapsedTime() {
-        long ElaspedTime = endTime-startTime  ;
+        long ElaspedTime = endTime - startTime;
         System.out.println("Số mili giây đếm được:" + ElaspedTime);
     }
 

@@ -81,9 +81,9 @@ public class LopFan {
 
     public String toString() {
         if (isOn()) {
-            return "Quạt đang bật," +" "+ "Tốc độ quạt là " + getSpeed()+"," +" "+ "Bán kính quạt là :" + getRadius()+"," +" "+ "Màu sắc là :" + getColor();
+            return "Quạt đang bật," + " " + "Tốc độ quạt là " + getSpeed() + "," + " " + "Bán kính quạt là :" + getRadius() + "," + " " + "Màu sắc là :" + getColor();
         } else {
-            return "Quạt đang tắt," +" "+ "Tốc độ quạt là " + getSpeed()+"," +" "+ "Bán kính quạt là :" + getRadius()+"," +" "+ "Màu sắc là :" + getColor();
+            return "Quạt đang tắt," + " " + "Tốc độ quạt là " + getSpeed() + "," + " " + "Bán kính quạt là :" + getRadius() + "," + " " + "Màu sắc là :" + getColor();
         }
     }
 
@@ -99,18 +99,18 @@ public class LopFan {
         fan1.setRadius(5);
         fan1.setColor("blue");
 
-        Scanner sc =new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("+bấm phím 0 để quạt chạy:");
         int bat = Integer.parseInt(sc.nextLine());
-        if (bat==0){
+        if (bat == 0) {
             System.out.println(fan);
         }
         System.out.println("+Bấm phim 1 để quạt ngưng:");
         int tat = Integer.parseInt(sc.nextLine());
-        if (tat==1){
+        if (tat == 1) {
             System.out.println(fan1);
         }
-        }
     }
+}
 
 
