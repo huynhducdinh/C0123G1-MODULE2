@@ -19,11 +19,7 @@ public class Student {
         this.name = name;
     }
 
-    public String getClasses() {
-        return classes;
-    }
-
-    public void setClasses(String classes) {
+    public void setClasses() {
         this.classes = classes;
     }
 
@@ -34,4 +30,7 @@ public class Student {
                 ", classes='" + classes + '\'' +
                 '}';
     }
+
+
+
 }
