@@ -1,6 +1,6 @@
 package resizeable;
 
-public abstract class Shape implements Resizeable {
+public abstract class Shape implements Iresizeable {
     String colors = "pink";
     boolean filled = true;
 
