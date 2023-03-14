@@ -1,4 +1,4 @@
-package Lop_point_moveablepoint;
+package lop_point_moveablepoint;
 
 public class Point {
     float x = 0.0f;

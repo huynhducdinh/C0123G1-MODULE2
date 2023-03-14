@@ -1,4 +1,4 @@
-package Lop_point_moveablepoint;
+package lop_point_moveablepoint;
 
 import java.util.Scanner;
 
