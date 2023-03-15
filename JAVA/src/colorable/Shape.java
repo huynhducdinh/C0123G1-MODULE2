@@ -1,6 +1,6 @@
 package colorable;
 
-public class Shape implements Icolorable {
+public class Shape implements IColorable {
     String colors = "pink";
     boolean filled = true;
 

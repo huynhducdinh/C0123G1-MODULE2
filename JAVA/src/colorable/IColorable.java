@@ -1,6 +1,6 @@
 package colorable;
 
-public interface Icolorable {
+public interface IColorable {
     void howToColor();
 
 }

@@ -1,6 +1,6 @@
 package resizeable;
 
-public interface Iresizeable {
+public interface IResizeable {
     void resizeableresize(double percent);
 
 }

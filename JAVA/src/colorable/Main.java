@@ -6,9 +6,9 @@ public class Main {
         shapes[0] = new Square(2);
         shapes[1] = new Circle(3);
         for (Shape s : shapes) {
-            if (s instanceof Icolorable) {
+            if (s instanceof IColorable) {
                 System.out.println(s);
-                ((Icolorable) s).howToColor();
+                ((IColorable) s).howToColor();
 
             }
         }
