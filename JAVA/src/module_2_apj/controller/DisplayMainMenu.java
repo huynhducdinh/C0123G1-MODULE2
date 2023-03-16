@@ -22,6 +22,31 @@ public class DisplayMainMenu {
             switch (choose) {
                 case 1:
                     employeeDisplay();
+
+                case 2:
+                    customerDispay();
+//                    do {
+//                        System.out.println("Chọn chức năng");
+//
+//                        int chooseee = Integer.parseInt(sc.nextLine());
+//                        switch (chooseee) {
+//                            case 1:
+//                                System.out.println("+Hiển thị danh sách2");
+//                                break;
+//                            case 2:
+//                                System.out.println("them mơi1");
+//                                break;
+//                            case 3:
+//                                System.out.println("cam ơ1n");
+//                                break;
+//                            case 4:
+//                                flag = false;
+//                                break;
+//                        }
+//                    } while (flag);
+
+                case 3:
+                    facilityDisplay();
                     do {
                         System.out.println("Chọn chức năng");
                         int choosee = Integer.parseInt(sc.nextLine());
@@ -38,35 +63,10 @@ public class DisplayMainMenu {
                                 System.out.println("cam ơn");
                                 break;
                             case 4:
-                                flag = false;
+                                displayMenu();
                                 break;
                         }
                     } while (flag);
-                    break;
-                case 2:
-                    customerDispay();
-                    do {
-                        System.out.println("Chọn chức năng");
-
-                        int chooseee = Integer.parseInt(sc.nextLine());
-                        switch (chooseee) {
-                            case 1:
-                                System.out.println("+Hiển thị danh sách2");
-                                break;
-                            case 2:
-                                System.out.println("them mơi1");
-                                break;
-                            case 3:
-                                System.out.println("cam ơ1n");
-                                break;
-                            case 4:
-                                flag = false;
-                                break;
-                        }
-                    } while (flag);
-
-                case 3:
-                    facilityDisplay();
                     break;
                 case 4:
                     bookingDisplay();

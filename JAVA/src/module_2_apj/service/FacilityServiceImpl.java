@@ -4,7 +4,7 @@ import module_2_apj.molel.Facility;
 
 import java.util.Scanner;
 
-public class FacilityServiceImpl implements IFacilityService {
+public class FacilityServiceImpl  implements IFacilityService {
     static Facility[] facility = new Facility[100];
 
     static {
@@ -16,7 +16,7 @@ public class FacilityServiceImpl implements IFacilityService {
         for (Facility f : facility) {
             if (f != null) {
                 System.out.println(f);
-            }else {
+            } else {
                 break;
             }
         }
@@ -24,30 +24,40 @@ public class FacilityServiceImpl implements IFacilityService {
 
     @Override
     public void add() {
-        Scanner sc= new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("Nhập tên Villa");
-        String villa =sc.nextLine();
+        String villa = sc.nextLine();
         System.out.println("Nhập tên Nhà");
-        String house =sc.nextLine();
+        String house = sc.nextLine();
         System.out.println("Nhập tên Phòng");
-      String room =sc.nextLine();
+        String room = sc.nextLine();
         System.out.println("Nhập tên Tên");
-      String name =sc.nextLine();
+        String name = sc.nextLine();
         System.out.println("Nhập tên Diện tích đất");
-        String arc =sc.nextLine();
+        String arc = sc.nextLine();
         System.out.println("Nhập tên Chi phí thuê");
-        String villa1 =sc.nextLine();
+        String villa1 = sc.nextLine();
         System.out.println("Nhập tên Số lượng người ở");
-        String villa2 =sc.nextLine();
+        String villa2 = sc.nextLine();
         System.out.println("Nhập tên chi ví");
-        String villa22 =sc.nextLine();
-        Facility facilityy = new Facility(villa,house,room,name,arc,villa1,villa2,villa22);
-        for (int i = 0; i < facility.length ; i++) {
-            if (facility[i]==null){
-                facility[i]=facilityy;
+        String villa22 = sc.nextLine();
+        Facility facilityy = new Facility(villa, house, room, name, arc, villa1, villa2, villa22);
+        for (int i = 0; i < facility.length; i++) {
+            if (facility[i] == null) {
+                facility[i] = facilityy;
                 break;
             }
         }
+    }
+
+    @Override
+    public void update() {
+
+    }
+
+    @Override
+    public void delete() {
+
     }
 }
 

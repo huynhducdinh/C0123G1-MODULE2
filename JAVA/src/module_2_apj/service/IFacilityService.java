@@ -1,6 +1,7 @@
 package module_2_apj.service;
 
-public interface IFacilityService {
-    void  display();
-    void add();
+import module_2_apj.molel.Facility;
+
+public interface IFacilityService extends ISevrice<Facility> {
+
 }
