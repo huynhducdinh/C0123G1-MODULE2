@@ -4,7 +4,7 @@ import module_2_apj.molel.Facility;
 
 import java.util.Scanner;
 
-public class FacilityServiceImpl  implements IFacilityService {
+public class FacilityServiceImpl implements IFacilityService {
     static Facility[] facility = new Facility[100];
 
     static {

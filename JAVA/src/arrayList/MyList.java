@@ -78,9 +78,6 @@ public class MyList<E> {
         elements = (E[]) new Object[DEFAULT_CAPACITY];
         size = 0;
     }
-
-
-
 }
 
 
