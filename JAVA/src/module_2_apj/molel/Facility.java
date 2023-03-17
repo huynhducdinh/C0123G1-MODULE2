@@ -1,6 +1,6 @@
 package module_2_apj.molel;
 // Facility (cơ sở vật chất) bao gồm các thông tin chung của tất cả dịch vụ cho thuê Villa, House, Room.Tên dịch vụ, Diện tích sử dụng, Chi phí thuê, Số lượng người tối đa, Kiểu thuê (bao gồm thuê theo năm, tháng, ngày, giờ.
-public class Facility {
+public   class Facility {
     String villa;
     String house;
     String room;

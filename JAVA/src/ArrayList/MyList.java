@@ -1,6 +1,4 @@
-package arrayList;
-
-import module_2_apj.molel.Person;
+package ArrayList;
 
 import java.util.Arrays;
 
