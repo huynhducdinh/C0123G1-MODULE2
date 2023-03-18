@@ -15,11 +15,12 @@ public class MenuCodeGym {
         IntructorIml intructorIml = new IntructorIml();
         Scanner sc = new Scanner(System.in);
         boolean check = true;
-        do {System.out.println("Trung tâm đào đào tạo gồm có " +
-                "\n1. Học viên" +
-                "\n2. Giảng viên" +
-                "\n3. Hết việc làm");
-            System.out.println("Nếu bạn là học viên hay giảng viên hãy nhập đầy đủ các chức năng dưới đây");
+        do {
+            System.out.println("Trung tâm đào đào tạo gồm có " +
+                    "\n1. Học viên" +
+                    "\n2. Giảng viên" +
+                    "\n3. Hết việc làm");
+            System.out.println("Nếu bạn là học viên hay giảng viên  thì ấn phím 1 hoặc 2 muốn thoát thì phím 3");
             int select = Integer.parseInt(sc.nextLine());
             switch (select) {
                 case 1:
@@ -33,7 +34,6 @@ public class MenuCodeGym {
                                 studentIml.add();
                                 break;
                             case 2:
-
                                 studentIml.detele();
                                 break;
                             case 3:
@@ -48,29 +48,8 @@ public class MenuCodeGym {
                     break;
                 case 2:
                     Inturtor();
-//                    do{
-//                        System.out.println("Nếu bạn là học viên hãy nhập đầy đủ các chức năng dưới đây");
-//                        int chooss = Integer.parseInt(sc.nextLine());
-//                        switch (chooss) {
-//                            case 1:
-//                                System.out.println("Hãy nhập các chức năng sau đây");
-//                                studentIml.add();
-//                                break;
-//                            case 2:
-//
-//                                studentIml.detele();
-//                                break;
-//                            case 3:
-//                                System.out.println("Hiển thị danh sách học viên");
-//                                studentIml.display();
-//                                break;
-//                            case 4:
-//                                displayMenuCodyGym();
-//                                break;
-//                        }
-//                    } while (check);
                     do {
-                        System.out.println("Nếu bạn là giảng viên hãy nhập đầy đủ các chức năng dưới đây");
+                        System.out.println("Chọn chức năng");
                         int chooss = Integer.parseInt(sc.nextLine());
                         switch (chooss) {
                             case 1:
@@ -92,14 +71,13 @@ public class MenuCodeGym {
                     break;
                 case 3:
                     check = false;
-                    System.out.println("Hết rồi");
                     break;
             }
         } while (check);
     }
 
     public static void Student() {
-        System.out.println("Danh sách quản lí hồ sơ " +
+        System.out.println("Danh sách quản lí hồ sơ học viên gồm có " +
                 "\n1. Thêm mới  học viên" +
                 "\n2. Xoá  học viên" +
                 "\n3. Xem danh sách học viên" +
@@ -107,7 +85,7 @@ public class MenuCodeGym {
         System.out.println("Hãy chọn các mục trên đây để làm việc");
     }
     public static void Inturtor() {
-        System.out.println("Danh sách quản lí hồ sơ " +
+        System.out.println("Danh sách quản lí hồ sơ giảng viên gồm" +
                 "\n1. Thêm mới  giảng viên" +
                 "\n2. Xoá  giảng viên" +
                 "\n3. Xem danh sách giảng viên" +
