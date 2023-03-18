@@ -1,6 +1,6 @@
 package bai_tap_them.molel.molel;
 
-public class Intructor extends Peron{
+public class Intructor extends Peron {
 
     String specialize;
 
@@ -23,7 +23,7 @@ public class Intructor extends Peron{
     @Override
     public String toString() {
         return "Intructor{" +
-                "code='" + getCode()+ '\'' +
+                "code='" + getCode() + '\'' +
                 ", name='" + getName() + '\'' +
                 ", birth='" + getBirth() + '\'' +
                 ", gender='" + getGender() + '\'' +

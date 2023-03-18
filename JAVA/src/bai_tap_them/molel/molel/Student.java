@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Student extends Peron {
     private String classs;
-    private int point;
+    private double point;
 
     public Student() {
     }
@@ -23,18 +23,18 @@ public class Student extends Peron {
         this.classs = classs;
     }
 
-    public int getPoint() {
+    public double getPoint() {
         return point;
     }
 
-    public void setPoint(int point) {
+    public void setPoint(double point) {
         this.point = point;
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "code='" + getCode()+ '\'' +
+                "code='" + getCode() + '\'' +
                 ", name='" + getName() + '\'' +
                 ", birth='" + getBirth() + '\'' +
                 ", gender='" + getGender() + '\'' +
@@ -42,6 +42,5 @@ public class Student extends Peron {
                 ", point=" + getPoint() +
                 '}';
     }
-
 }
 

@@ -7,16 +7,16 @@ public abstract class Peron {
     private int code;
     private String birth;
     private String gender;
-    private  String name;
+    private String name;
 
     public Peron() {
     }
 
-    public Peron(int code, String birth, String gender,String name) {
+    public Peron(int code, String birth, String gender, String name) {
         this.code = code;
         this.birth = birth;
         this.gender = gender;
-        this.name=name;
+        this.name = name;
     }
 
     public int getCode() {
@@ -60,15 +60,4 @@ public abstract class Peron {
                 ", gender='" + getGender() + '\'' +
                 '}';
     }
-//    @Override
-//    public boolean equals(Object o) {
-//        Student student=(Student) o;
-//        return code == student.getCode();
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(getCode());
-//    }
 }
-
