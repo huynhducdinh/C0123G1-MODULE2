@@ -14,23 +14,23 @@ public class StudentIml implements IManagement {
     }
 
     static Scanner sc = new Scanner(System.in);
+    static Student student=new Student();
 
     @Override
     public void add() {
 
         System.out.println("NHập mã");
         int code = Integer.parseInt(sc.nextLine());
-        int count = 0;
-        for (int i = 0; i < students.size(); i++) {
-            if (code == students.get(i).getCode()) {
-                System.out.println("mã học viên có rồi");
-                return;
-            } else {
-                count++;
-            }
+    int count = 0;
+    for (int i = 0; i < students.size(); i++) {
+        if (code == students.get(i).getCode()) {
+            System.out.println("mã học viên có rồi");
+
+            return;
+        } else {
+            count++;
         }
-        if (count == students.size()) {
-        }
+    }
         System.out.println("NHập tên học viên");
         String name = sc.nextLine();
         System.out.println("NHập ngày sinh học viên");
@@ -44,6 +44,7 @@ public class StudentIml implements IManagement {
         Student student = new Student(code, name, birday, gender, classs, (int) ponit);
         students.add(student);
     }
+
 
     @Override
     public void update() {
