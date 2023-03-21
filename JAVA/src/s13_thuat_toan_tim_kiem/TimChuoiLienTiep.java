@@ -17,13 +17,13 @@ public class TimChuoiLienTiep {
             }
             linkedList.add(str.charAt(i));
 
-            if (linkedList.size() > listmax.size()) { // 1 câu lệnh
+            if (linkedList.size() > listmax.size()) {
                 listmax.clear();
                 listmax.addAll(linkedList);
             }
         }
-        for (Character ch : listmax) { // 1 vòng lặp
-            System.out.print(ch); // 1 câu lệnh
+        for (Character ch : listmax) {
+            System.out.print(ch);
         }
         System.out.println();
     }
