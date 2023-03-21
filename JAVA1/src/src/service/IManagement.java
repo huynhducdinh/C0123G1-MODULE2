@@ -1,2 +1,2 @@
-package service;public interface IManagement {
-}
+package service;
+

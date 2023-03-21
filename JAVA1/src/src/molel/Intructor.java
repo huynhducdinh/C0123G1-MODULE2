@@ -1,2 +1,3 @@
-package molel;public class Intructor {
-}
+package molel;
+
+
