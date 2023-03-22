@@ -2,6 +2,8 @@ package module_2_apj.molel.person;
 
 import module_2_apj.molel.person.PersonCha;
 
+import java.util.Comparator;
+
 //: Mã nhân viên, Họ tên, Ngày sinh, Giới tính, Số CMND, Số Điện Thoại, Email, Trình độ, Vị trí, lương
 public class Employee extends PersonCha {
 
@@ -54,10 +56,11 @@ public class Employee extends PersonCha {
                 ", sdt=" + sdt +
                 ", cmnd=" + cmnd +
                 ", email='" + email + '\'' +
-                "qualification='" + qualification + '\'' +
+                " ,qualification='" + qualification + '\'' +
                 ", position='" + position + '\'' +
                 ", salary='" + salary + '\'' +
 
                 '}';
     }
+
 }

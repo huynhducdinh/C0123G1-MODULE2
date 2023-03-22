@@ -78,7 +78,6 @@ public class StudentIml implements IManagement {
     }
 
     public void display() {
-        System.out.println("Hiển thị danh sách:");
         for (Student s : students) {
             System.out.println(s);
         }

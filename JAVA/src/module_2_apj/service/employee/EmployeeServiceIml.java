@@ -1,18 +1,19 @@
 package module_2_apj.service.employee;
 
+import module_2_apj.molel.person.ComparatorEmployee;
 import module_2_apj.molel.person.Employee;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class EmployeeServiceIml implements IEmployessService {
     static ArrayList<Employee>employees=new ArrayList<>();
     static {
         employees.add(new Employee("Đinh","Nam",1,98,908555,206379736,"heeyeon@","Sau Đại Học","Nhân viên","10tr"));
+        Collections.sort(employees, new ComparatorEmployee());
     }
+
     static Scanner sc=new Scanner(System.in);
-    static Employee employee=new Employee();
+
     @Override
     public void display() {
         System.out.println("Hiển thị");

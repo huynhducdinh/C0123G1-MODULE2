@@ -33,13 +33,11 @@ public class Student extends Peron {
 
     @Override
     public String toString() {
-        System.out.printf("%60s", "--------Danh sách học viên--------\n");
-        System.out.printf("+------+--------------------+--------------------+---------------+---------------+-------------+\n");
-        System.out.printf("|%6s|%20s|%20s|%15s|%15s|%15s", "Id", "Tên", "Ngày sinh", "Giới Tính", "Lớp", "Điểm|\n");
-        System.out.printf("+------+--------------------+--------------------+---------------+---------------+-------------+\n");
-    return String.format("|%6s|%20s|%20s|%15s|%15s|%13s|", getCode(), getName(), getBirth(), getGender(), getClasss(), getPoint());
+
+        return String.format("|%6s|%20s|%20s|%15s|%15s|%13s|", getCode(), getName(), getBirth(), getGender(), getClasss(), getPoint());
 //        return System.out.printf("+------+--------------------+--------------------+---------------+---------------+-------------+\n").toString();
 
     }
+
 }
 

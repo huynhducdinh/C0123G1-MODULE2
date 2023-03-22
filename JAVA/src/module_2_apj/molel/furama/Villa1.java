@@ -1,6 +1,6 @@
 package module_2_apj.molel.furama;
 
-// Villa  được kế thừ từ Facility và có thêm các chức năng khác :bao gồm Tiêu chuẩn phòng, Diện tích hồ bơi, Số tầng.;
+// Villa   Diện tích hồ bơi
 public class Villa1 extends Cha1CuaFarama {
    String sHoBoi;
 

@@ -56,8 +56,12 @@ public class MenuCodeGym {
                     studentIml.detele();
                     break;
                 case 3:
-                    System.out.println("Hiển thị danh sách học viên");
+                    System.out.printf("%60s","-----DANH SÁCH HỌC VIÊN-----\n");
+                    System.out.printf("+------+--------------------+--------------------+---------------+---------------+-------------+\n");
+                    System.out.printf("|%6s|%20s|%20s|%15s|%15s|%15s", "Id", "Tên", "Ngày sinh", "Giới Tính", "Lớp", "Điểm|\n");
+                    System.out.printf("+------+--------------------+--------------------+---------------+---------------+-------------+\n");
                     studentIml.display();
+                    System.out.printf("+------+--------------------+--------------------+---------------+---------------+-------------+\n");
                     break;
                 case 4:
                     check = false;
