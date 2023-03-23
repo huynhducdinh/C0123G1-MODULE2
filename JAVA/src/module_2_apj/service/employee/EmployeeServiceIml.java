@@ -6,18 +6,19 @@ import module_2_apj.molel.person.Employee;
 import java.util.*;
 
 public class EmployeeServiceIml implements IEmployessService {
-    static ArrayList<Employee>employees=new ArrayList<>();
+    static ArrayList<Employee> employees = new ArrayList<>();
+
     static {
-        employees.add(new Employee("Đinh","Nam",1,98,908555,206379736,"heeyeon@","Sau Đại Học","Nhân viên","10tr"));
+        employees.add(new Employee("Đinh", "Nam", 1, 98, 908555, 206379736, "heeyeon@", "Sau Đại Học", "Nhân viên", "10tr"));
         Collections.sort(employees, new ComparatorEmployee());
     }
 
-    static Scanner sc=new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
 
     @Override
     public void display() {
         System.out.println("Hiển thị");
-        for (Employee e:employees) {
+        for (Employee e : employees) {
             System.out.println(e);
         }
     }
@@ -25,62 +26,100 @@ public class EmployeeServiceIml implements IEmployessService {
     @Override
     public void add() {
         System.out.println("Nhập tên nhân viên");
-        String name =sc.nextLine();
+        String name = sc.nextLine();
         System.out.println("Nhập giới tính nhân viên");
-        String gender=sc.nextLine();
+        String gender = sc.nextLine();
 //        mã nv ko dc trùng
-        System.out.println("Nhập mã nhân nhân viên");
-        int code=Integer.parseInt(sc.nextLine());
+        int id = inputId();
         System.out.println("Nhập ngày sinh nhân viên");
-        int birday=Integer.parseInt(sc.nextLine());
+        int birday = Integer.parseInt(sc.nextLine());
         System.out.println("Nhập số điện thoại nhân viên");
-        int isnumber=Integer.parseInt(sc.nextLine());
+        int isnumber = Integer.parseInt(sc.nextLine());
 //        cmnd ko dc trùng
         System.out.println("Nhập CMND nhân viên");
-        int cmnd=Integer.parseInt(sc.nextLine());
+        int cmnd = Integer.parseInt(sc.nextLine());
 //        email ko dc trùng nè
         System.out.println("Nhập Email nhân viên");
-        String email=sc.nextLine();
-        System.out.println("Nhập Trình độ nhân viên");
-        String trinhDo=sc.nextLine();
+        String email = sc.nextLine();
+        String str = trinhDo();
         System.out.println("Nhập Vị trí làm việc nhân viên");
-        String viTri=sc.nextLine();
+        String viTri = sc.nextLine();
         System.out.println("Nhập Số tiền lương nhân viên");
-        String luong=sc.nextLine();
-       Employee employee=(new Employee(name,gender,code,birday,isnumber,cmnd,email,trinhDo,viTri,luong));
+        String luong = sc.nextLine();
+        Employee employee = (new Employee(name, gender, id, birday, isnumber, cmnd, email, str, viTri, luong));
         employees.add(employee);
+    }
+
+    public static int inputId() {
+        int code = 0;
+        int count = 0;
+        System.out.println("nhập mã nhân viên");
+        while (true) {
+            try {
+            for (int i = 0; i < employees.size(); i++) {
+                if (code == employees.get(i).getCodee()) {
+                    System.out.println("Ma nhân viên có rồi");
+                    break;
+                } else {
+                    System.out.println("nhập lại");
+                }
+            }
+                code = Integer.parseInt(sc.nextLine());
+                return code;
+            } catch (NumberFormatException e) {
+                System.out.println("nhập lại");
+            }
+        }
+
+    }
+
+    public static String trinhDo() {
+        System.out.println("Nhập Trình độ nhân viên");
+        String trinhDo = sc.nextLine();
+        switch (trinhDo) {
+            case "1":
+                return "Trung cấp";
+            case "2":
+                return "Cao đẳng";
+            case "3":
+                return "Đại học";
+            case "4":
+                return "Sau đại học";
+        }
+
+        return trinhDo;
     }
 
     @Override
     public void update() {
         System.out.println("nhập mã cần sửa :");
         int codee = Integer.parseInt(sc.nextLine());
-        for (int i = 0; i <employees.size() ; i++) {
-            if (employees.get(i).getCodee()== codee){
+        for (int i = 0; i < employees.size(); i++) {
+            if (employees.get(i).getCodee() == codee) {
                 System.out.println("Nhập tên nhân viên");
-                String name =sc.nextLine();
+                String name = sc.nextLine();
                 System.out.println("Nhập giới tính nhân viên");
-                String gender=sc.nextLine();
+                String gender = sc.nextLine();
 //        mã nv ko dc trùng
                 System.out.println("Nhập mã nhân nhân viên");
-                int code=Integer.parseInt(sc.nextLine());
+                int code = Integer.parseInt(sc.nextLine());
                 System.out.println("Nhập ngày sinh nhân viên");
-                int birday=Integer.parseInt(sc.nextLine());
+                int birday = Integer.parseInt(sc.nextLine());
                 System.out.println("Nhập số điện thoại nhân viên");
-                int isnumber=Integer.parseInt(sc.nextLine());
+                int isnumber = Integer.parseInt(sc.nextLine());
 //        cmnd ko dc trùng
                 System.out.println("Nhập CMND nhân viên");
-                int cmnd=Integer.parseInt(sc.nextLine());
+                int cmnd = Integer.parseInt(sc.nextLine());
 //        email ko dc trùng nè
                 System.out.println("Nhập Email nhân viên");
-                String email=sc.nextLine();
+                String email = sc.nextLine();
                 System.out.println("Nhập Trình độ nhân viên");
-                String trinhDo=sc.nextLine();
+                String trinhDo = sc.nextLine();
                 System.out.println("Nhập Vị trí làm việc nhân viên");
-                String viTri=sc.nextLine();
+                String viTri = sc.nextLine();
                 System.out.println("Nhập Số tiền lương nhân viên");
-                String luong=sc.nextLine();
-               employees.set(i,new Employee(name,gender,code,birday,isnumber,cmnd,email,trinhDo,viTri,luong));
+                String luong = sc.nextLine();
+                employees.set(i, new Employee(name, gender, code, birday, isnumber, cmnd, email, trinhDo, viTri, luong));
                 break;
             }
         }

@@ -25,7 +25,6 @@ public class StudentIml implements IManagement {
     for (int i = 0; i < students.size(); i++) {
         if (code == students.get(i).getCode()) {
             System.out.println("mã học viên có rồi");
-
             return;
         } else {
             count++;
