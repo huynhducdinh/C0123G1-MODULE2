@@ -1,0 +1,6 @@
+"Xin chào:","Tôi tên là : Huỳnh Đức Định"
+"Lớp:","C0123G1"
+"Xin chào .Tôi tên là : Huỳnh Đức Định"
+"Lớp: C0123G1"
+"Xin chào .Tôi tên là : Huỳnh Đức Định"
+"Lớp: C0123G1"

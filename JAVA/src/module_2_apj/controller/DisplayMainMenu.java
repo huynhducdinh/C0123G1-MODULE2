@@ -156,8 +156,8 @@ public class DisplayMainMenu {
         do {
             flag = true;
             System.out.println("Chọn chức năng của hạng mụa 4" +
-                    "\n1. Add new booking" +
-                    "\n2. Display list booking" +
+                    "\n1. Add new bookingtxt" +
+                    "\n2. Display list bookingtxt" +
                     "\n3. Create new contract" +
                     "\n4. Display list contracts" +
                     "\n5. Edit contracts" +

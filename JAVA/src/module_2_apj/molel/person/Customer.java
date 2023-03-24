@@ -2,7 +2,7 @@ package module_2_apj.molel.person;
 
 import module_2_apj.molel.bookingorcontract.Cha3CuaBokingContract;
 
-//Số hợp đồng, mã booking, Số tiền cọc trước, Tổng số tiền thanh toán, mã khách hàng.
+//Số hợp đồng, mã bookingtxt, Số tiền cọc trước, Tổng số tiền thanh toán, mã khách hàng.
 //  hợp đồng của khách hàng.
 public class Customer extends PersonCha {
     String loaiKach;

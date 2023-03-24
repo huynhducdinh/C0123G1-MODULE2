@@ -1,6 +1,6 @@
 package module_2_apj.molel.bookingorcontract;
 
-//mã booking, ngày bắt đầu, ngày kết thúc, mã khách hàng, tên dịch vụ, loại dịch vụ.//
+//mã bookingtxt, ngày bắt đầu, ngày kết thúc, mã khách hàng, tên dịch vụ, loại dịch vụ.//
 //của Customer ( khách hàng)
 public class Booking3 extends Cha3CuaBokingContract {
 
