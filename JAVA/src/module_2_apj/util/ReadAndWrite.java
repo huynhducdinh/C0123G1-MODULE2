@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadAndWrite {
-    public static void writeStringToFile(String pathFile, String text, boolean append){
+    public static void writeFile(String pathFile, String text, boolean append){
         File file = new File(pathFile);
         FileWriter fileWriter =null;
         BufferedWriter bufferedWriter =null;
-
         try {
             fileWriter = new FileWriter(file,append); // true ghi thêm, false : ghi đè
             bufferedWriter= new BufferedWriter(fileWriter);
@@ -23,10 +22,9 @@ public class ReadAndWrite {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
     }
-    public static List<String> readFileToListString(String pathFile){
+    public static List<String> readFile(String pathFile){
         List<String> stringList = new ArrayList<>();
         File file = new File(pathFile);
         FileReader fileReader = null;

@@ -62,5 +62,8 @@ public class Employee extends PersonCha {
 
                 '}';
     }
-
+public String convertLine(){
+        String COMMA =",";
+        return getName()+COMMA+getGender()+COMMA+getCodee()+COMMA+getBirday()+COMMA+getSdt()+COMMA+getCmnd()+COMMA+getEmail()+COMMA+getQualification()+COMMA+getPosition()+COMMA+getSalary();
+}
 }

@@ -49,4 +49,9 @@ public class Customer extends PersonCha {
                 ", diaChi='" + diaChi + '\'' +
                 '}';
     }
+    public String convertLine1(){
+        String COMMA= ",";
+        return getName()+COMMA+getGender()+COMMA+getCodee()+COMMA+getBirday()+COMMA+getSdt()+COMMA+getCmnd()+COMMA+getEmail()+COMMA+getLoaiKach()+COMMA+getDiaChi();
+
+    }
 }

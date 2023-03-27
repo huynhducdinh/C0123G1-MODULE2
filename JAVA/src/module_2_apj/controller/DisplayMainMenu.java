@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DisplayMainMenu {
-    static FacilityServiceImpl facilityServiceiml = new FacilityServiceImpl();
+    static FacilityServiceImpl facilityServiceimpl = new FacilityServiceImpl();
     static BookingServiceIml bookingServiceIml = new BookingServiceIml();
     static PromotionSreviceIml promotionSreviceIml = new PromotionSreviceIml();
     static CustomerServiveIml customerServiveIml = new CustomerServiveIml();
@@ -58,7 +58,6 @@ public class DisplayMainMenu {
 
     public static void employeeDisplay() {
         boolean check;
-
         do {
             check = true;
             System.out.println("Chọn chức năng của hạng mục 1" +
@@ -71,7 +70,7 @@ public class DisplayMainMenu {
             switch (choosee) {
                 case 1:
                     System.out.println("Hiển thị danh sách nhân viên");
-                    employeeServiceIml.display();
+                  employeeServiceIml.display();
                     break;
                 case 2:
                     System.out.println("Thêm nhân viên mới");
@@ -134,15 +133,15 @@ public class DisplayMainMenu {
             switch (choosee) {
                 case 1:
                     System.out.println("danh sách hiển thị cơ sở");
-                    facilityServiceiml.display();
+                    facilityServiceimpl.display();
                     break;
                 case 2:
                     System.out.println("Thêm cơ sở mới");
-                    facilityServiceiml.add();
+                    facilityServiceimpl.add();
                     break;
                 case 3:
                     System.out.println("Hiển thị danh sách bảo trì cơ sở");
-                    facilityServiceiml.displaymaintenance();
+                    facilityServiceimpl.displaymaintenance();
                     break;
                 case 4:
                     check = false;
