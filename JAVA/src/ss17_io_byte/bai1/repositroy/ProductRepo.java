@@ -7,23 +7,21 @@ import java.util.List;
 
 public class ProductRepo implements IProductRepo {
     private static final String FILE = "src\\ss17_io_byte\\bai1\\data\\text.dat";
+    static List<Product> productList = ReadAndWrite.readFile(FILE);
 
     @Override
     public List<Product> getAllDisplay() {
-        List<Product> productList = ReadAndWrite.readFile(FILE);
         return productList;
     }
 
     @Override
     public void add(Product product) {
-        List<Product> productList1 = ReadAndWrite.readFile(FILE);
-        productList1.add(product);
-        ReadAndWrite.writeFile(FILE, productList1);
+        productList.add(product);
+        ReadAndWrite.writeFile(FILE, productList);
     }
 
     @Override
     public void search() {
-        List<Product> productList1 = ReadAndWrite.readFile(FILE);
-        productList1.add(new Product());
+        productList.add(new Product());
     }
 }
