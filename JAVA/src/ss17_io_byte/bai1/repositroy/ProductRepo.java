@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ProductRepo implements IProductRepo {
     private static final String FILE = "src\\ss17_io_byte\\bai1\\data\\text.dat";
-    static List<Product> productList = ReadAndWrite.readFile(FILE);
+    private static List<Product> productList = ReadAndWrite.readFile(FILE);
 
     @Override
     public List<Product> getAllDisplay() {
@@ -15,9 +15,8 @@ public class ProductRepo implements IProductRepo {
     }
 
     @Override
-    public void add(Product product) {
-        productList.add(product);
-        ReadAndWrite.writeFile(FILE, productList);
+    public void add(List<Product> productList) {
+//        ReadAndWrite.writeFile(FILE, productList);
     }
 
     @Override

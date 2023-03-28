@@ -7,7 +7,7 @@ public class Regex {
 
     public static final String REGEX_NAME="^[a-zA-Z ]{6,12}$";
 //    heeyeon09082002@gmail.com
-    public static final String REGEX_EMAIL="^\\w+@\\w+(\\.\\w+{2.3}$";
-    public static final String REGEX_SDT="^[0-9]{10}$";
+    public static final String REGEX_EMAIL="^[a-z]\\w{5,}\\@[a-z]{3,5}\\.[a-z]{2,5}$";
+    public static final String REGEX_SDT="^((\\+84)||0)[0-9]{9}$";
     public static final String REGEX_BIRTH="^\\d{1,2}[-|/]\\d{1,2}[-|/]\\d{4}$";
 }

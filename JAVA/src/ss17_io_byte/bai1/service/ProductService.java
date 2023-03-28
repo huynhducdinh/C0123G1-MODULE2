@@ -2,16 +2,22 @@ package ss17_io_byte.bai1.service;
 
 import ss17_io_byte.bai1.molel.Product;
 import ss17_io_byte.bai1.repositroy.ProductRepo;
+import ss17_io_byte.bai1.util.ReadAndWrite;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ProductService implements IProductService {
     ProductRepo productRepo = new ProductRepo();
     static Scanner sc = new Scanner(System.in);
-    static Product product = new Product();
-     List<Product> products = productRepo.getAllDisplay();
 
+    static List<Product> products = new ArrayList<>();
+    private static final String FILE = "src\\ss17_io_byte\\bai1\\data\\text.dat";
+
+    static {
+        products = ReadAndWrite.readFile(FILE);
+    }
 
     @Override
     public void display() {
@@ -32,8 +38,9 @@ public class ProductService implements IProductService {
         String manufactured = sc.nextLine();
         System.out.println("Hãy mô toả sản phẩm");
         String describe = sc.nextLine();
-        product = new Product(id, name, price, manufactured, describe);
-        productRepo.add(product);
+        Product product = new Product(id, name, price, manufactured, describe);
+        products.add(product);
+        productRepo.add(products);
     }
 
     @Override

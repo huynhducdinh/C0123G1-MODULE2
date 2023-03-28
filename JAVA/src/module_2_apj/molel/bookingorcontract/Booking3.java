@@ -62,4 +62,9 @@ String serviceType;
                 ", serviceType='" + serviceType + '\'' +
                 '}';
     }
+    public String convertLine3(){
+        String COMMA= ",";
+        return getMaBooking()+COMMA+getStartDate()+COMMA+getEndDate()+COMMA+getMaKhhachHang()+COMMA+getServiceName()+COMMA+getServiceType();
+
+    }
 }

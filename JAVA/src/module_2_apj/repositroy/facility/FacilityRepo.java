@@ -12,16 +12,16 @@ public class FacilityRepo implements IFacilityRepo {
     public static void writeFlie(List<Facility> facilities) {
         FacilityWriteFile.writeFacilityFile(FACILITY_LIST_PATH, facilities);
     }
+    List<Facility> facilityList = FacilityReadFile.facilityList(FACILITY_LIST_PATH);
+
 
     @Override
     public List<Facility> getAllDisplay() {
-        List<Facility> facilityList = FacilityReadFile.facilityList(FACILITY_LIST_PATH);
         return facilityList;
     }
 
     @Override
     public void add(Facility facility) {
-        List<Facility> facilityList = FacilityReadFile.facilityList(FACILITY_LIST_PATH);
         facilityList.add(facility);
         writeFlie(facilityList);
     }
@@ -33,7 +33,6 @@ public class FacilityRepo implements IFacilityRepo {
 
     @Override
     public void delete() {
-        List<Facility> facilityList = FacilityReadFile.facilityList(FACILITY_LIST_PATH);
         facilityList.remove(new Facility());
     }
 
@@ -41,4 +40,5 @@ public class FacilityRepo implements IFacilityRepo {
     public void displaymaintenance() {
 
     }
+}
 

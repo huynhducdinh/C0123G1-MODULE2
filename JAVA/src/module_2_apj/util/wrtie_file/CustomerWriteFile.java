@@ -16,8 +16,6 @@ public class CustomerWriteFile {
         try {
             fileWriter = new FileWriter(file);
             bufferedWriter = new BufferedWriter(fileWriter);
-            String line = null;
-            String[] arr;
             for (Customer c : customerList) {
                 bufferedWriter.write(c.convertLine1());
                 bufferedWriter.newLine();

@@ -23,6 +23,8 @@ public class CustomerReadFile {
                     customer = new Customer(arr[0], arr[1], Integer.parseInt(arr[2]), Integer.parseInt(arr[3]), Integer.parseInt(arr[4]), Integer.parseInt(arr[5]), arr[6], arr[7], arr[8]);
                     customersRead.add(customer);
                 }
+                bufferedReader.close();
+                fileReader.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {

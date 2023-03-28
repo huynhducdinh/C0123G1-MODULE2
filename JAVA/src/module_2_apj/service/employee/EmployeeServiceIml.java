@@ -2,25 +2,18 @@ package module_2_apj.service.employee;
 
 import module_2_apj.molel.person.Employee;
 import module_2_apj.repositroy.Employee.EmployeeRepo;
-import module_2_apj.util.ReadAndWrite;
-import module_2_apj.util.read_file.EmployeesReadFile;
-import module_2_apj.util.wrtie_file.EmployeesWriteFile;
 
 import java.util.*;
 
 public class EmployeeServiceIml implements IEmployessService {
+
     static Scanner sc = new Scanner(System.in);
     static EmployeeRepo employeeRepo = new EmployeeRepo();
-    private final String EMPLOYEE_LIST_PATH = "src\\module_2_apj\\data\\employee.csv";
-
-    private void writeFile(List<Employee> employeeList) {
-        EmployeesWriteFile.writeFile(EMPLOYEE_LIST_PATH, employeeList);
-    }
+    List<Employee> employeeList3 = employeeRepo.getAllDisplay();
 
     @Override
     public void display() {
-        List<Employee> employeeList = employeeRepo.getAllDisplay();
-        for (Employee e : employeeList) {
+        for (Employee e : employeeList3) {
             System.out.println(e);
         }
     }
@@ -112,7 +105,7 @@ public class EmployeeServiceIml implements IEmployessService {
 
     @Override
     public void update() {
-        List<Employee> employeeList3 = employeeRepo.getAllDisplay();
+
         System.out.println("nhập mã cần sửa :");
         int codee = Integer.parseInt(sc.nextLine());
         for (int i = 0; i < employeeList3.size(); i++) {

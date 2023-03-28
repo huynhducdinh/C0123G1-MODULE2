@@ -178,6 +178,7 @@ public class DisplayMainMenu {
                     break;
                 case 3:
                     System.out.println("Tạo hợp đồng mới");
+                    bookingServiceIml.addContract();
                     break;
                 case 4:
                     System.out.println("Hiển thị danh sách hợp đồng");

@@ -1,14 +1,14 @@
 package module_2_apj.util.read_file;
 
-import module_2_apj.molel.furama.Facility;
+import module_2_apj.molel.bookingorcontract.Booking3;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FacilityReadFile {
-    public static List<Facility> facilityList(String path) {
-        List<Facility> facilities = new ArrayList<>();
+public class BookingReadFile {
+    public static List<Booking3> booking3List(String path) {
+        List<Booking3> booking3List = new ArrayList<>();
         File file = new File(path);
         FileReader fileReader = null;
         if (file.exists()) {
@@ -19,8 +19,8 @@ public class FacilityReadFile {
                 String[] arr;
                 while ((line = bufferedReader.readLine()) != null) {
                     arr = line.split(",");
-                    Facility facility = new Facility(arr[0], arr[1], Double.parseDouble(arr[2]), Double.parseDouble(arr[3]), arr[4], arr[5]);
-                    facilities.add(facility);
+                    Booking3 booking3 = new Booking3(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5]);
+                    booking3List.add(booking3);
                 }
                 bufferedReader.close();
                 fileReader.close();
@@ -29,7 +29,9 @@ public class FacilityReadFile {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
         }
-        return facilities;
+        return booking3List;
     }
+
 }

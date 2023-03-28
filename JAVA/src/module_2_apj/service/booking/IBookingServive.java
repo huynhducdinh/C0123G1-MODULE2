@@ -15,5 +15,6 @@ public interface IBookingServive extends ISevrice {
     @Override
     void delete();
     void displayContract();
+    void addContract();
 
 }

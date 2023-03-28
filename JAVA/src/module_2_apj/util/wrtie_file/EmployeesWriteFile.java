@@ -20,7 +20,6 @@ public class EmployeesWriteFile {
                 bufferedWriter.write(e.convertLine());
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
-
             }
         } catch (IOException e) {
             e.printStackTrace();

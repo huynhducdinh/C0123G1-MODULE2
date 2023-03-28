@@ -8,6 +8,8 @@ import java.util.List;
 
 public class EmployeeRepo implements IEmployeeRepo {
     private final String EMPLOYEE_LIST_PATH = "src\\module_2_apj\\data\\employee.csv";
+    List<Employee> employeeList = EmployeesReadFile.readEmployee(EMPLOYEE_LIST_PATH);
+
 
     private void writeFile(List<Employee> employeeList) {
         EmployeesWriteFile.writeFile(EMPLOYEE_LIST_PATH, employeeList);
@@ -15,15 +17,13 @@ public class EmployeeRepo implements IEmployeeRepo {
 
     @Override
     public List<Employee> getAllDisplay() {
-        List<Employee> employeeList1 = EmployeesReadFile.readEmployee(EMPLOYEE_LIST_PATH);
-        return employeeList1;
+        return employeeList;
     }
 
     @Override
     public void add(Employee employee) {
-        List<Employee> employeeList2 = EmployeesReadFile.readEmployee(EMPLOYEE_LIST_PATH);
-        employeeList2.add(employee);
-        writeFile(employeeList2);
+        employeeList.add(employee);
+        writeFile(employeeList);
     }
 
     @Override
@@ -33,7 +33,6 @@ public class EmployeeRepo implements IEmployeeRepo {
 
     @Override
     public void delete() {
-        List<Employee> employeeList4 = EmployeesReadFile.readEmployee(EMPLOYEE_LIST_PATH);
-        employeeList4.remove(new Employee());
+        employeeList.remove(new Employee());
     }
 }

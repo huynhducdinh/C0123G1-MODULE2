@@ -1,7 +1,7 @@
 package module_2_apj.molel.furama;
 
 // Villa   Diện tích hồ bơi
-public class Villa1 extends Cha1CuaFarama {
+public   class Villa1 extends Cha1CuaFarama {
    String sHoBoi;
 
     public Villa1() {
