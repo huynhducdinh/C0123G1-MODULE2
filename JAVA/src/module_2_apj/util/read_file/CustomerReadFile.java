@@ -29,6 +29,6 @@ public class CustomerReadFile {
                 e.printStackTrace();
             }
         }
-return customersRead;
+        return customersRead;
     }
 }

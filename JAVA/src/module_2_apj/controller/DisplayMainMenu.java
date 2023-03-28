@@ -96,6 +96,7 @@ public class DisplayMainMenu {
                     "\n1. Display list customers" +
                     "\n2. Add new customer" +
                     "\n3. Edit customer" +
+                    "\n5.coá"+
                     "\n4. Return main menu");
             System.out.println("Chọn chức năng");
             int choosee = Integer.parseInt(sc.nextLine());
@@ -111,6 +112,9 @@ public class DisplayMainMenu {
                 case 3:
                     System.out.println("Chỉnh sửa khách hàng");
                     customerServiveIml.update();
+                    break;
+                case 5:
+                    customerServiveIml.delete();
                     break;
                 case 4:
                     check = false;

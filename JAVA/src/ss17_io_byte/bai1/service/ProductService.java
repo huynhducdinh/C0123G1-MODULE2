@@ -10,10 +10,11 @@ public class ProductService implements IProductService {
     ProductRepo productRepo = new ProductRepo();
     static Scanner sc = new Scanner(System.in);
     static Product product = new Product();
+     List<Product> products = productRepo.getAllDisplay();
+
 
     @Override
     public void display() {
-        List<Product> products = productRepo.getAllDisplay();
         for (Product p : products) {
             System.out.println(p);
         }
@@ -37,7 +38,6 @@ public class ProductService implements IProductService {
 
     @Override
     public void search() {
-        List<Product> products = productRepo.getAllDisplay();
         System.out.println("Nhập tên sản phẩm cần tìm kiếm: ");
         String nameFind = sc.nextLine();
         boolean search = false;

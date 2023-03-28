@@ -36,6 +36,6 @@ public class CustomerRepo implements ICustomerRepo {
 
     @Override
     public void delete() {
-
-    }
+        List<Customer> customerList = CustomerReadFile.comparators(CUSTOMER_LIST_PATH);
+        customerList.remove(new Customer());    }
 }

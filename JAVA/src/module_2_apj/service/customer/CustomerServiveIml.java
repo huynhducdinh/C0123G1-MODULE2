@@ -82,7 +82,28 @@ public class CustomerServiveIml implements ISevrice {
 
     @Override
     public void delete() {
-
+       List<Customer>customerList=customerRepo.getAllDisplay();
+        System.out.println("nhập mã cần xoá :");
+        int code = Integer.parseInt(sc.nextLine());
+        for (int i = 0; i < customerList.size(); i++) {
+            if (customerList.get(i).getCodee() == code) {
+                System.out.println("Bạn có muốn xoá  Mã  " + code + " này ko  " +
+                        "\n 1. Có" +
+                        "\n 2. Không");
+                System.out.println("Chọn chức năng");
+                int choss = Integer.parseInt(sc.nextLine());
+                switch (choss) {
+                    case 1:
+                        customerList.remove(customerList.get(i));
+                        System.out.println("Bạn xoá thành công");
+                        break;
+                    case 2:
+                        System.out.println("Bạn đã không xoá");
+                }
+                return;
+            }
+        }
+        System.out.println("không tìm thấy mã khách hàng");
     }
 
     public static String capBac() {

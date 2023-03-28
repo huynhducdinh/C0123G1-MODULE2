@@ -1,5 +1,7 @@
 package module_2_apj.service.employee;
+
 import module_2_apj.molel.person.Employee;
+import module_2_apj.repositroy.Employee.EmployeeRepo;
 import module_2_apj.util.ReadAndWrite;
 import module_2_apj.util.read_file.EmployeesReadFile;
 import module_2_apj.util.wrtie_file.EmployeesWriteFile;
@@ -8,7 +10,7 @@ import java.util.*;
 
 public class EmployeeServiceIml implements IEmployessService {
     static Scanner sc = new Scanner(System.in);
-    static Employee employee = new Employee();
+    static EmployeeRepo employeeRepo = new EmployeeRepo();
     private final String EMPLOYEE_LIST_PATH = "src\\module_2_apj\\data\\employee.csv";
 
     private void writeFile(List<Employee> employeeList) {
@@ -17,15 +19,14 @@ public class EmployeeServiceIml implements IEmployessService {
 
     @Override
     public void display() {
-        List<Employee> employeeList1 = EmployeesReadFile.readEmployee(EMPLOYEE_LIST_PATH);
-        for (Employee e : employeeList1) {
+        List<Employee> employeeList = employeeRepo.getAllDisplay();
+        for (Employee e : employeeList) {
             System.out.println(e);
         }
     }
 
     @Override
     public void add() {
-        List<Employee> employeeList2 = EmployeesReadFile.readEmployee(EMPLOYEE_LIST_PATH);
         System.out.println("Nhập tên nhân viên");
         String name = sc.nextLine();
         System.out.println("Nhập giới tính nhân viên");
@@ -40,12 +41,11 @@ public class EmployeeServiceIml implements IEmployessService {
         System.out.println("Nhập Email nhân viên");
         String email = sc.nextLine();
         String str = trinhDo();
-        String viTri=viTri();
+        String viTri = viTri();
         System.out.println("Nhập Số tiền lương nhân viên");
         String luong = sc.nextLine();
         Employee employee = (new Employee(name, gender, id, birday, isnumber, cmnd, email, str, viTri, luong));
-        employeeList2.add(employee);
-        writeFile(employeeList2);
+        employeeRepo.add(employee);
     }
 
     public static int inputId() {
@@ -62,10 +62,10 @@ public class EmployeeServiceIml implements IEmployessService {
     }
 
     public static String trinhDo() {
-        System.out.println("Chọn trình độ của bạn"+
-                "\n1.Trung Cấp"+
-                "\n2.Cao Đẳng"+
-                "\n3.Đại Học"+
+        System.out.println("Chọn trình độ của bạn" +
+                "\n1.Trung Cấp" +
+                "\n2.Cao Đẳng" +
+                "\n3.Đại Học" +
                 "\n4.Sau Đại Học");
         System.out.println("Nhập Trình độ nhân viên");
         String trinhDo = sc.nextLine();
@@ -82,17 +82,18 @@ public class EmployeeServiceIml implements IEmployessService {
 
         return trinhDo;
     }
-    public static String viTri(){
-        System.out.println("Chọn Công việc vủa bạn"+
-                "\n1.Lễ tân"+
-                "\n2.phục vụ"+
-                "\n3.chuyên viên"+
-                "\n4.giám sát"+
-                "\n5.quản lý"+
+
+    public static String viTri() {
+        System.out.println("Chọn Công việc vủa bạn" +
+                "\n1.Lễ tân" +
+                "\n2.phục vụ" +
+                "\n3.chuyên viên" +
+                "\n4.giám sát" +
+                "\n5.quản lý" +
                 "\n6.giám đốc");
         System.out.println("Chọn công việc bạn làm tại Furama");
-        String pos=sc.nextLine();
-        switch (pos){
+        String pos = sc.nextLine();
+        switch (pos) {
             case "1":
                 return "Lễ Tân";
             case "2":
@@ -111,7 +112,7 @@ public class EmployeeServiceIml implements IEmployessService {
 
     @Override
     public void update() {
-        List<Employee> employeeList3 = EmployeesReadFile.readEmployee(EMPLOYEE_LIST_PATH);
+        List<Employee> employeeList3 = employeeRepo.getAllDisplay();
         System.out.println("nhập mã cần sửa :");
         int codee = Integer.parseInt(sc.nextLine());
         for (int i = 0; i < employeeList3.size(); i++) {
@@ -131,11 +132,11 @@ public class EmployeeServiceIml implements IEmployessService {
                 System.out.println("Nhập lại Email nhân viên mới");
                 String email = sc.nextLine();
                 String trinhDo = trinhDo();
-                String viTri=viTri();
+                String viTri = viTri();
                 System.out.println("Nhập lại Số tiền lương nhân viên mới");
                 String luong = sc.nextLine();
                 employeeList3.set(i, new Employee(name, gender, code, birday, isnumber, cmnd, email, trinhDo, viTri, luong));
-                writeFile(employeeList3);
+                employeeRepo.update(employeeList3);
                 break;
             }
         }
@@ -143,7 +144,7 @@ public class EmployeeServiceIml implements IEmployessService {
 
     @Override
     public void delete() {
-        List<Employee> employeeList4 = EmployeesReadFile.readEmployee(EMPLOYEE_LIST_PATH);
+        List<Employee>employeeList4=employeeRepo.getAllDisplay();
         System.out.println("nhập mã cần xoá :");
         int code = Integer.parseInt(sc.nextLine());
         for (int i = 0; i < employeeList4.size(); i++) {
@@ -160,6 +161,7 @@ public class EmployeeServiceIml implements IEmployessService {
                         break;
                     case 2:
                         System.out.println("Bạn đã không xoá");
+                        break;
                 }
                 return;
             }
