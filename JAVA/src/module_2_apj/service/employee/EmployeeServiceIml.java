@@ -1,14 +1,15 @@
 package module_2_apj.service.employee;
 
 import module_2_apj.molel.person.Employee;
-import module_2_apj.repositroy.Employee.EmployeeRepo;
+import module_2_apj.repositroy.employee.EmployeeRepo;
+import module_2_apj.repositroy.employee.IEmployeeRepo;
 
 import java.util.*;
 
 public class EmployeeServiceIml implements IEmployessService {
 
     static Scanner sc = new Scanner(System.in);
-    static EmployeeRepo employeeRepo = new EmployeeRepo();
+    static IEmployeeRepo employeeRepo = new EmployeeRepo();
     List<Employee> employeeList3 = employeeRepo.getAllDisplay();
 
     @Override
@@ -105,7 +106,6 @@ public class EmployeeServiceIml implements IEmployessService {
 
     @Override
     public void update() {
-
         System.out.println("nhập mã cần sửa :");
         int codee = Integer.parseInt(sc.nextLine());
         for (int i = 0; i < employeeList3.size(); i++) {

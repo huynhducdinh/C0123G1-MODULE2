@@ -13,8 +13,6 @@ public class FacilityRepo implements IFacilityRepo {
         FacilityWriteFile.writeFacilityFile(FACILITY_LIST_PATH, facilities);
     }
     List<Facility> facilityList = FacilityReadFile.facilityList(FACILITY_LIST_PATH);
-
-
     @Override
     public List<Facility> getAllDisplay() {
         return facilityList;

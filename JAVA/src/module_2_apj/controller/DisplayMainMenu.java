@@ -1,31 +1,35 @@
 package module_2_apj.controller;
 
-import com.sun.xml.internal.ws.developer.ValidationErrorHandler;
-import jdk.internal.org.objectweb.asm.tree.analysis.Value;
-import module_2_apj.molel.person.Employee;
 import module_2_apj.service.booking.BookingServiceIml;
-import module_2_apj.service.customer.CustomerServiveIml;
+import module_2_apj.service.booking.IBookingServive;
+import module_2_apj.service.customer.CustomerServiceIml;
 import module_2_apj.service.employee.EmployeeServiceIml;
+import module_2_apj.service.employee.IEmployessService;
 import module_2_apj.service.facility.FacilityServiceImpl;
+import module_2_apj.service.facility.IFacilityService;
+import module_2_apj.service.hopdongthue.HopDongThueServiceIml;
+import module_2_apj.service.hopdongthue.IHopDongThue;
+import module_2_apj.service.promotion.IPromotionService;
 import module_2_apj.service.promotion.PromotionSreviceIml;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class DisplayMainMenu {
-    static FacilityServiceImpl facilityServiceimpl = new FacilityServiceImpl();
-    static BookingServiceIml bookingServiceIml = new BookingServiceIml();
-    static PromotionSreviceIml promotionSreviceIml = new PromotionSreviceIml();
-    static CustomerServiveIml customerServiveIml = new CustomerServiveIml();
-    static EmployeeServiceIml employeeServiceIml = new EmployeeServiceIml();
+    static IFacilityService facilityServiceImpl = new FacilityServiceImpl();
+    static IBookingServive bookingServiceIml = new BookingServiceIml();
+    static IPromotionService promotionServiceIml = new PromotionSreviceIml();
+    static CustomerServiceIml customerServiceIml =  new CustomerServiceIml();
+    static IEmployessService employeeServiceIml = new EmployeeServiceIml();
+    static IHopDongThue hopDongThueServiceIml = new HopDongThueServiceIml();
     static Scanner sc = new Scanner(System.in);
 
     public static void displayMenu() {
         boolean flag = true;
         do {
             System.out.println("Danh sách quản lí hồ sơ " +
-                    "\n 1.Employee Management" +
-                    "\n 2.Customer Management" +
+                    "\n 1.employee Management" +
+                    "\n 2.customer Management" +
                     "\n 3.Facility Management " +
                     "\n 4.Booking Management" +
                     "\n 5.Promotion Management" +
@@ -64,13 +68,14 @@ public class DisplayMainMenu {
                     "\n1.Display list employees" +
                     "\n2.Add new employee" +
                     "\n3.Edit employee" +
+                    "\n5.xx"+
                     "\n4.Return main menu");
             System.out.println("Chọn chức năng");
             int choosee = Integer.parseInt(sc.nextLine());
             switch (choosee) {
                 case 1:
                     System.out.println("Hiển thị danh sách nhân viên");
-                  employeeServiceIml.display();
+                    employeeServiceIml.display();
                     break;
                 case 2:
                     System.out.println("Thêm nhân viên mới");
@@ -80,7 +85,13 @@ public class DisplayMainMenu {
                     System.out.println("Chỉnh sửa nhân viên");
                     employeeServiceIml.update();
                     break;
+                case 5:
+                    System.out.println("xao nhân viên");
+
+                    employeeServiceIml.delete();
+                    break;
                 case 4:
+
                     check = false;
                     break;
             }
@@ -96,25 +107,25 @@ public class DisplayMainMenu {
                     "\n1. Display list customers" +
                     "\n2. Add new customer" +
                     "\n3. Edit customer" +
-                    "\n5.coá"+
+                    "\n5.coá" +
                     "\n4. Return main menu");
             System.out.println("Chọn chức năng");
             int choosee = Integer.parseInt(sc.nextLine());
             switch (choosee) {
                 case 1:
                     System.out.println("Hiển thị danh sách khách hàng");
-                    customerServiveIml.display();
+                    customerServiceIml.display();
                     break;
                 case 2:
                     System.out.println("Thêm khách hàng mới");
-                    customerServiveIml.add();
+                    customerServiceIml.add();
                     break;
                 case 3:
                     System.out.println("Chỉnh sửa khách hàng");
-                    customerServiveIml.update();
+                    customerServiceIml.update();
                     break;
                 case 5:
-                    customerServiveIml.delete();
+                    customerServiceIml.delete();
                     break;
                 case 4:
                     check = false;
@@ -137,15 +148,15 @@ public class DisplayMainMenu {
             switch (choosee) {
                 case 1:
                     System.out.println("danh sách hiển thị cơ sở");
-                    facilityServiceimpl.display();
+                    facilityServiceImpl.display();
                     break;
                 case 2:
                     System.out.println("Thêm cơ sở mới");
-                    facilityServiceimpl.add();
+                    facilityServiceImpl.add();
                     break;
                 case 3:
                     System.out.println("Hiển thị danh sách bảo trì cơ sở");
-                    facilityServiceimpl.displaymaintenance();
+                    facilityServiceImpl.displaymaintenance();
                     break;
                 case 4:
                     check = false;
@@ -178,15 +189,15 @@ public class DisplayMainMenu {
                     break;
                 case 3:
                     System.out.println("Tạo hợp đồng mới");
-                    bookingServiceIml.addContract();
+                    hopDongThueServiceIml.add();
                     break;
                 case 4:
                     System.out.println("Hiển thị danh sách hợp đồng");
-                    bookingServiceIml.displayContract();
+                    hopDongThueServiceIml.display();
                     break;
                 case 5:
                     System.out.println("Chỉnh sửa hợp đồng");
-                    bookingServiceIml.update();
+                    hopDongThueServiceIml.update();
                     break;
                 case 6:
                     flag = false;
@@ -208,11 +219,11 @@ public class DisplayMainMenu {
             switch (choosee) {
                 case 1:
                     System.out.println("+Hiển thị danh sách khách hàng sử dụng dịch vụ");
-                    promotionSreviceIml.display();
+                    promotionServiceIml.display();
                     break;
                 case 2:
                     System.out.println("Hiển thị danh sách khách hàng nhận voucher");
-                    promotionSreviceIml.displayVoucher();
+                    promotionServiceIml.displayVoucher();
                     break;
                 case 3:
                     flag = false;

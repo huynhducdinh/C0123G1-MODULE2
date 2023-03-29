@@ -1,4 +1,5 @@
 package module_2_apj.util;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,7 @@ public class ReadAndWrite {
         FileWriter fileWriter =null;
         BufferedWriter bufferedWriter =null;
         try {
-            fileWriter = new FileWriter(file,append); // true ghi thêm, false : ghi đè
+            fileWriter = new FileWriter(file,append);
             bufferedWriter= new BufferedWriter(fileWriter);
             bufferedWriter.write(text);
             bufferedWriter.newLine();

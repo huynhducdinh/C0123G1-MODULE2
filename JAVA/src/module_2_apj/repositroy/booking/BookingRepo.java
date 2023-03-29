@@ -1,36 +1,36 @@
 package module_2_apj.repositroy.booking;
 
-import module_2_apj.molel.bookingorcontract.Booking3;
+import module_2_apj.molel.bookingorcontract.Booking;
 import module_2_apj.util.ReadAndWrite;
+import module_2_apj.util.read_file.BookingReadFile;
+import module_2_apj.util.wrtie_file.BookingWriteFile;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class BookingRepo implements IBookingRepo{
-    private static final String BOOKING_LIST_PATH="src/module_2_apj/data/booking.csv";
-    static Scanner sc =new Scanner(System.in);
+public class BookingRepo implements IBookingRepo {
+    private static final String BOOKING_LIST_PATH = "src/module_2_apj/data/booking.csv";
+    static Scanner sc = new Scanner(System.in);
+    public static void writeFileBook(List<Booking>bookingList){
+        BookingWriteFile.bookingWrite(BOOKING_LIST_PATH,bookingList);
+    }
+    static List<Booking>bookingList= BookingReadFile.booking3List(BOOKING_LIST_PATH);
+
+
     @Override
-    public List<Booking3> display() {
-        List<Booking3>booking3List=new ArrayList<>();
-        List<String>stringList= ReadAndWrite.readFile(BOOKING_LIST_PATH);
-        int size =stringList.size();
-        for (int i = 0; i <size ; i++) {
-            String str=stringList.get(i);
-            String[]arr=str.split(",");
-            Booking3 booking3=new Booking3(arr[0],arr[1],arr[2],arr[3],arr[4],arr[5]);
-            booking3List.add(booking3);
-        }
-        return booking3List;
+    public List<Booking> display() {
+       return bookingList;
     }
 
     @Override
-    public void add(Booking3 booking3List) {
-    ReadAndWrite.writeFile(BOOKING_LIST_PATH, booking3List.convertLine3(),true);
+    public void add(Booking booking3List) {
+
+        writeFileBook(bookingList);
     }
 
     @Override
-    public void update() {
+    public void update(Booking booking4s) {
 
     }
 

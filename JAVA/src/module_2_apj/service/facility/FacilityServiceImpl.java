@@ -2,18 +2,19 @@ package module_2_apj.service.facility;
 
 import module_2_apj.molel.furama.Facility;
 
-import module_2_apj.molel.furama.Villa1;
+import module_2_apj.molel.furama.Villa;
 import module_2_apj.repositroy.facility.FacilityRepo;
+import module_2_apj.repositroy.facility.IFacilityRepo;
 
 
 import java.util.List;
 import java.util.Scanner;
 
 public class FacilityServiceImpl implements IFacilityService {
-    static FacilityRepo facilityRepo = new FacilityRepo();
+    static IFacilityRepo facilityRepo = new FacilityRepo();
     static Scanner sc = new Scanner(System.in);
     static List<Facility> facilityList1 = facilityRepo.getAllDisplay();
-    static Villa1 villa1 = new Villa1();
+    static Villa villa1 = new Villa();
 
 
     public void display() {
@@ -93,7 +94,7 @@ public class FacilityServiceImpl implements IFacilityService {
                     return "Room";
             }
             return choss;
-        }while (flag);
+        } while (flag);
     }
 }
 
