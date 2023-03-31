@@ -9,13 +9,13 @@ public class Employee extends PersonCha {
 
     String qualification;
     String position;
-    String salary;
+   double salary;
 
     public Employee() {
 
     }
 
-    public Employee(String name, String gender, int codee, int birday, int sdt, int cmnd, String email, String qualification, String position, String salary) {
+    public Employee(String name, String gender, String codee, String birday, String sdt, String cmnd, String email, String qualification, String position, double salary) {
         super(name, gender, codee, birday, sdt, cmnd, email);
         this.qualification = qualification;
         this.position = position;
@@ -38,11 +38,11 @@ public class Employee extends PersonCha {
         this.position = position;
     }
 
-    public String getSalary() {
+    public double getSalary() {
         return salary;
     }
 
-    public void setSalary(String salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 

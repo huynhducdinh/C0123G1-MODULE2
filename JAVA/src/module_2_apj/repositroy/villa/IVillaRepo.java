@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface IVillaRepo {
     List<Villa> getAllDisplay();
-    void add(Villa villa1);
+    void addVilla(Villa villa1);
 }

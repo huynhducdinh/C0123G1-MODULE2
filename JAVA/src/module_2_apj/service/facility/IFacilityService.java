@@ -1,8 +1,8 @@
 package module_2_apj.service.facility;
 
-import module_2_apj.service.ISevrice;
+import module_2_apj.service.IService;
 
-public interface IFacilityService extends ISevrice {
+public interface IFacilityService extends IService {
 
     @Override
     void display();

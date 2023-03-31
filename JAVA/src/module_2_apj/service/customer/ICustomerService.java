@@ -1,8 +1,8 @@
 package module_2_apj.service.customer;
 
-import module_2_apj.service.ISevrice;
+import module_2_apj.service.IService;
 
-public interface ICustomerService extends ISevrice {
+public interface ICustomerService extends IService {
     @Override
     void display();
 

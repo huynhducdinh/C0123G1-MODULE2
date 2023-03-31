@@ -10,7 +10,6 @@ public class Computer implements IComputer {
     static {
         computerProducts.add(new ComputerProducts(1, "dell", 10, "pink"));
     }
-    static  ComputerProducts computerProducts1=new ComputerProducts();
 
     static Scanner sc = new Scanner(System.in);
 
@@ -42,7 +41,6 @@ public class Computer implements IComputer {
     public void update() {
         System.out.println("Nhập id vào đây để tìm ");
         int id = Integer.parseInt(sc.nextLine());
-        int count = 0;
         for (int i = 0; i < computerProducts.size(); i++) {
             if (computerProducts.get(i).getId() == id) {
                 System.out.println("Nhập hãng của sản phẩm bạn muốn sửa");

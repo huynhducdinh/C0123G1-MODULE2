@@ -1,69 +1,84 @@
 package module_2_apj.service.facility;
 
+
 import module_2_apj.molel.furama.Facility;
-
+import module_2_apj.molel.furama.House;
+import module_2_apj.molel.furama.Room;
 import module_2_apj.molel.furama.Villa;
-import module_2_apj.repositroy.facility.FacilityRepo;
-import module_2_apj.repositroy.facility.IFacilityRepo;
+import module_2_apj.repositroy.house.HouseRepo;
+import module_2_apj.repositroy.house.IHouseRepo;
+import module_2_apj.repositroy.room.IRoomRepo;
+import module_2_apj.repositroy.room.RoomRepo;
+import module_2_apj.repositroy.villa.IVillaRepo;
+import module_2_apj.repositroy.villa.VillaRepo;
+import module_2_apj.service.house.HouseServiceImpl;
+import module_2_apj.service.house.IHouseService;
+import module_2_apj.service.room.IRoomService;
+import module_2_apj.service.room.RoomServiceImpl;
+import module_2_apj.service.villa.IVillaService;
+import module_2_apj.service.villa.VillaServiceImpl;
+import module_2_apj.util.read_file.HouseReadFile;
 
-
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class FacilityServiceImpl implements IFacilityService {
-    static IFacilityRepo facilityRepo = new FacilityRepo();
     static Scanner sc = new Scanner(System.in);
-    static List<Facility> facilityList1 = facilityRepo.getAllDisplay();
-    static Villa villa1 = new Villa();
+    static IVillaRepo iVillaRepo = new VillaRepo();
+    static IHouseRepo iHouseRepo = new HouseRepo();
+    static IRoomRepo iRoomRepo = new RoomRepo();
+    static IVillaService villaService = new VillaServiceImpl();
+    static IHouseService houseService = new HouseServiceImpl();
+    static IRoomService roomService = new RoomServiceImpl();
+    static List<Villa> villaList = iVillaRepo.getAllDisplay();
+    static List<Room> randomList = iRoomRepo.getDisplayRom();
+    static List<House> houseList = iHouseRepo.displayHouse();
+    static Map<Facility, Integer> facilityIntegerMap = new LinkedHashMap<>();
 
 
     public void display() {
-        for (Facility f : facilityList1) {
-            System.out.println(f);
+        System.out.println("-++-Danh sách cơ sở của khách sạn-++-");
+        for (Villa v : villaList) {
+            System.out.println(v);
+        }
+        for (Room r : randomList) {
+            System.out.println(r);
+        }
+        for (House h : houseList) {
+            System.out.println(h);
         }
     }
 
     @Override
     public void add() {
-        System.out.println("Nhập mã thuê ");
-        String id = sc.nextLine();
-        System.out.println("Nhập Tên dịch vụ ");
-        String tenDichVu = tenDichVu();
-        System.out.println("Nhập diện tích sử dụng ");
-        double area = Double.parseDouble(sc.nextLine());
-        System.out.println("Nhập Chi phí thuê ");
-        double costs = Double.parseDouble(sc.nextLine());
-        System.out.println("Nhập Số lượng người tối đa ");
-        String amount = sc.nextLine();
-        System.out.println("Nhập kiểu thuê ");
-        String name = sc.nextLine();
-        Facility facility = new Facility(id, tenDichVu, area, costs, amount, name);
-        facilityRepo.add(facility);
+        boolean check;
+        do {
+            check = true;
+            System.out.println("Danh sách cơ sở khách sạn" +
+                    "\n1. Villa" +
+                    "\n2.Room" +
+                    "\n3.House" +
+                    "\n4.Quay lại");
+            System.out.println("Chọn");
+            int choss = Integer.parseInt(sc.nextLine());
+            switch (choss) {
+                case 1:
+                    villaService.addVilla();
+                    break;
+                case 2:
+                    roomService.addRoom();
+                    break;
+                case 3:
+                    houseService.addHouse();
+                    break;
+                case 4:
+                    check = false;
+                    break;
+            }
+        } while (check);
     }
 
     @Override
     public void update() {
-
-        System.out.println("Nhập mã cần sửa");
-        String code = sc.nextLine();
-        for (int i = 0; i < facilityList1.size(); i++) {
-            if (facilityList1.get(i).getId() == code) {
-                System.out.println("Nhập mã thuê cần sửa ");
-                String id = sc.nextLine();
-                String tenDichVu = tenDichVu();
-                System.out.println("Nhập diện tích sử dụng cần sửa ");
-                double area = Double.parseDouble(sc.nextLine());
-                System.out.println("Nhập Chi phí thuê cần sửa ");
-                double costs = Double.parseDouble(sc.nextLine());
-                System.out.println("Nhập Số lượng người tối đa cần sửa ");
-                String amount = sc.nextLine();
-                System.out.println("Nhập kiểu thuê cần sửa ");
-                String name = sc.nextLine();
-
-                facilityList1.set(i, new Facility(id, tenDichVu, area, costs, amount, name));
-                facilityRepo.update(facilityList1);
-            }
-        }
     }
 
     @Override
@@ -76,26 +91,6 @@ public class FacilityServiceImpl implements IFacilityService {
     }
 
 
-    public static String tenDichVu() {
-        boolean flag = true;
-        do {
-            System.out.println("Các loại thuê" +
-                    "\n1. Villa+" +
-                    "\n2.House" +
-                    "\n3.Room");
-            System.out.println("Mời nhập kiểu thuê");
-            String choss = sc.nextLine();
-            switch (choss) {
-                case "1":
-                    return "Villa";
-                case "2":
-                    return "House";
-                case "3":
-                    return "Room";
-            }
-            return choss;
-        } while (flag);
-    }
 }
 
 

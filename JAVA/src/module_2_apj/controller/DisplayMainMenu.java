@@ -2,13 +2,15 @@ package module_2_apj.controller;
 
 import module_2_apj.service.booking.BookingServiceIml;
 import module_2_apj.service.booking.IBookingServive;
+
 import module_2_apj.service.customer.CustomerServiceIml;
+import module_2_apj.service.customer.ICustomerService;
 import module_2_apj.service.employee.EmployeeServiceIml;
 import module_2_apj.service.employee.IEmployessService;
 import module_2_apj.service.facility.FacilityServiceImpl;
 import module_2_apj.service.facility.IFacilityService;
-import module_2_apj.service.hopdongthue.HopDongThueServiceIml;
-import module_2_apj.service.hopdongthue.IHopDongThue;
+import module_2_apj.service.contract.ContractServiceIml;
+import module_2_apj.service.contract.IContract;
 import module_2_apj.service.promotion.IPromotionService;
 import module_2_apj.service.promotion.PromotionSreviceIml;
 
@@ -19,9 +21,9 @@ public class DisplayMainMenu {
     static IFacilityService facilityServiceImpl = new FacilityServiceImpl();
     static IBookingServive bookingServiceIml = new BookingServiceIml();
     static IPromotionService promotionServiceIml = new PromotionSreviceIml();
-    static CustomerServiceIml customerServiceIml =  new CustomerServiceIml();
+    static ICustomerService customerServiceIml =  new CustomerServiceIml();
     static IEmployessService employeeServiceIml = new EmployeeServiceIml();
-    static IHopDongThue hopDongThueServiceIml = new HopDongThueServiceIml();
+    static IContract hopDongThueServiceIml = new ContractServiceIml();
     static Scanner sc = new Scanner(System.in);
 
     public static void displayMenu() {
@@ -91,7 +93,6 @@ public class DisplayMainMenu {
                     employeeServiceIml.delete();
                     break;
                 case 4:
-
                     check = false;
                     break;
             }
@@ -231,6 +232,7 @@ public class DisplayMainMenu {
             }
         } while (flag);
     }
+
 
 }
 

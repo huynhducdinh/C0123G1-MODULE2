@@ -1,8 +1,8 @@
 package module_2_apj.service.booking;
 
-import module_2_apj.service.ISevrice;
+import module_2_apj.service.IService;
 
-public interface IBookingServive extends ISevrice {
+public interface IBookingServive extends IService {
     @Override
     void display();
 

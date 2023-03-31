@@ -3,16 +3,16 @@ package module_2_apj.molel.person;
 public abstract class PersonCha {
     String name;
     String gender;
-    int codee;
-    int birday;
-    int sdt;
-    int cmnd;
+    String codee;
+    String birday;
+    String sdt;
+    String cmnd;
     String email;
 
     public PersonCha() {
     }
 
-    public PersonCha(String name, String gender, int codee, int birday, int sdt, int cmnd, String email) {
+    public PersonCha(String name, String gender, String codee, String birday, String sdt, String cmnd, String email) {
         this.name = name;
         this.gender = gender;
         this.codee = codee;
@@ -38,35 +38,35 @@ public abstract class PersonCha {
         this.gender = gender;
     }
 
-    public int getCodee() {
+    public String getCodee() {
         return codee;
     }
 
-    public void setCodee(int codee) {
+    public void setCodee(String codee) {
         this.codee = codee;
     }
 
-    public int getBirday() {
+    public String getBirday() {
         return birday;
     }
 
-    public void setBirday(int birday) {
+    public void setBirday(String birday) {
         this.birday = birday;
     }
 
-    public int getSdt() {
+    public String getSdt() {
         return sdt;
     }
 
-    public void setSdt(int sdt) {
+    public void setSdt(String sdt) {
         this.sdt = sdt;
     }
 
-    public int getCmnd() {
+    public String getCmnd() {
         return cmnd;
     }
 
-    public void setCmnd(int cmnd) {
+    public void setCmnd(String cmnd) {
         this.cmnd = cmnd;
     }
 

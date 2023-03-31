@@ -8,7 +8,7 @@ public interface IFacilityRepo {
     List<Facility> getAllDisplay();
 
 
-    void add(Facility facility);
+    void add();
 
 
     void update(List<Facility> facilities);

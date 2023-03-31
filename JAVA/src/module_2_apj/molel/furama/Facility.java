@@ -1,89 +1,75 @@
 package module_2_apj.molel.furama;
 
-public class Facility {
+public  class Facility {
+    String tenDichVu;
+    double dienTich;
+    double chiPhiThue;
+    int soNguoiToiDa;
+    String kieuThue;
 
-        private String id;
-        private String name;
-        private double area;
-        private double costs;
-        private String amount;
-        private String rentalType;
+    public Facility() {
+    }
 
-        public Facility() {
-        }
+    public Facility(String tenDichVu, double dienTich, double chiPhiThue, int soNguoiToiDa, String kieuThue) {
+        this.tenDichVu = tenDichVu;
+        this.dienTich = dienTich;
+        this.chiPhiThue = chiPhiThue;
+        this.soNguoiToiDa = soNguoiToiDa;
+        this.kieuThue = kieuThue;
+    }
 
-        public Facility(String id, String name,
-                        double area, double costs,
-                        String amount, String rentalType) {
-            this.id = id;
-            this.name = name;
-            this.area = area;
-            this.costs = costs;
-            this.amount = amount;
-            this.rentalType = rentalType;
-        }
+    public String getTenDichVu() {
+        return tenDichVu;
+    }
 
-        public String getId() {
-            return id;
-        }
+    public void setTenDichVu(String tenDichVu) {
+        this.tenDichVu = tenDichVu;
+    }
 
-        public void setId(String id) {
-            this.id = id;
-        }
+    public double getDienTich() {
+        return dienTich;
+    }
 
-        public String getName() {
-            return name;
-        }
+    public void setDienTich(double dienTich) {
+        this.dienTich = dienTich;
+    }
 
-        public void setName(String name) {
-            this.name = name;
-        }
+    public double getChiPhiThue() {
+        return chiPhiThue;
+    }
 
-        public double getArea() {
-            return area;
-        }
+    public void setChiPhiThue(double chiPhiThue) {
+        this.chiPhiThue = chiPhiThue;
+    }
 
-        public void setArea(double area) {
-            this.area = area;
-        }
+    public int getSoNguoiToiDa() {
+        return soNguoiToiDa;
+    }
 
-        public double getCosts() {
-            return costs;
-        }
+    public void setSoNguoiToiDa(int soNguoiToiDa) {
+        this.soNguoiToiDa = soNguoiToiDa;
+    }
 
-        public void setCosts(double costs) {
-            this.costs = costs;
-        }
+    public String getKieuThue() {
+        return kieuThue;
+    }
 
-        public String getAmount() {
-            return amount;
-        }
+    public void setKieuThue(String kieuThue) {
+        this.kieuThue = kieuThue;
+    }
 
-        public void setAmount(String amount) {
-            this.amount = amount;
-        }
-
-        public String getRentalType() {
-            return rentalType;
-        }
-
-        public void setRentalType(String rentalType) {
-            this.rentalType = rentalType;
-        }
-
-        @Override
-        public String toString() {
-            return "FacilityModel{" +
-                    "id='" + id + '\'' +
-                    ", name='" + name + '\'' +
-                    ", area=" + area +
-                    ", costs=" + costs +
-                    ", amount='" + amount + '\'' +
-                    ", rentalType='" + rentalType + '\'' +
-                    '}';
-        }
-        public String convertLine3(){
-            String COMMA = ",";
-            return this.id + COMMA + this.name + COMMA + this.area + COMMA + this.costs + COMMA + this.amount + COMMA + this.rentalType;
-        }
+    @Override
+    public String toString() {
+        return "Furama1{" +
+                "tenDichVu='" + tenDichVu + '\'' +
+                ", dienTich='" + dienTich + '\'' +
+                ", chiPhiThue='" + chiPhiThue + '\'' +
+                ", soNguoiToiDa='" + soNguoiToiDa + '\'' +
+                ", kieuThue='" + kieuThue + '\'' +
+                '}';
+    }
+    public String convertLine3() {
+        String COMMA = ",";
+        return getTenDichVu() + COMMA + getDienTich() + COMMA + getChiPhiThue()+ COMMA + getSoNguoiToiDa()+ COMMA + getKieuThue();
+    }
 }

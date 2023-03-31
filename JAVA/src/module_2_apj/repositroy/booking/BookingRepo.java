@@ -25,7 +25,6 @@ public class BookingRepo implements IBookingRepo {
 
     @Override
     public void add(Booking booking3List) {
-
         writeFileBook(bookingList);
     }
 

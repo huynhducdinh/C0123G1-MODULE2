@@ -23,7 +23,7 @@ public class EmployeesReadFile {
                 while ((line = bufferedReader.readLine()) != null) {
                     arr = line.split(",");
 //                    String name, String gender, int codee, int birday, int sdt, int cmnd, String email, String qualification, String position, String salary
-                    employee = new Employee(arr[0], arr[1], Integer.parseInt(arr[2]), Integer.parseInt(arr[3]), Integer.parseInt(arr[4]), Integer.parseInt(arr[5]), arr[6], arr[7], arr[8], arr[9]);
+                    employee = new Employee(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8], Double.parseDouble(arr[9]));
                     employeeListRead.add(employee);
                 }
                 bufferedReader.close();

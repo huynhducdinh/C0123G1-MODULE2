@@ -1,8 +1,8 @@
 package module_2_apj.service.promotion;
 
-import module_2_apj.service.ISevrice;
+import module_2_apj.service.IService;
 
-public interface IPromotionService extends ISevrice {
+public interface IPromotionService extends IService {
 
     @Override
     void display();

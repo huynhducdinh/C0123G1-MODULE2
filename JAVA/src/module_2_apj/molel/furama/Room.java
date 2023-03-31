@@ -1,31 +1,38 @@
 package module_2_apj.molel.furama;
 
-// Room được kế thừ từ Facility và có thêm các chức năng khác :bao gồm Dịch vụ miễn phí đi kèm.
-public class Room extends Cha1CuaFarama {
-    String freeService;
-
+public class Room extends Facility {
+   String dichVuRieng;
 
     public Room() {
+
     }
 
-    public Room(String tieuChuanPhong, int sotang, String freeService) {
-        super(tieuChuanPhong, sotang);
-        this.freeService = freeService;
+    public Room(String tenDichVu, double dienTich, double chiPhiThue, int soNguoiToiDa, String kieuThue, String dichVuRieng) {
+        super(tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue);
+        this.dichVuRieng = dichVuRieng;
     }
 
-    public String getFreeService() {
-        return freeService;
+    public String getDichVuRieng() {
+        return dichVuRieng;
     }
 
-    public void setFreeService(String freeService) {
-        this.freeService = freeService;
+    public void setDichVuRieng(String dichVuRieng) {
+        this.dichVuRieng = dichVuRieng;
     }
 
     @Override
     public String toString() {
-        return "Room1{" +
-                "freeService='" + freeService + '\'' +
-                ", tieuChuanPhong='" + tieuChuanPhong + '\'' +
+        return "Room{" +
+                " tenDichVu='" + tenDichVu + '\'' +
+                ", dienTich='" + dienTich + '\'' +
+                ", chiPhiThue='" + chiPhiThue + '\'' +
+                ", soNguoiToiDa='" + soNguoiToiDa + '\'' +
+                ", kieuThue='" + kieuThue + '\'' +
+                ",dichVuRieng='" + dichVuRieng + '\'' +
                 '}';
+    }
+    public String convertLin5() {
+        String COMMA = ",";
+        return getTenDichVu() + COMMA + getDienTich() + COMMA + getChiPhiThue()+ COMMA + getSoNguoiToiDa()+ COMMA + getKieuThue()+COMMA+getDichVuRieng();
     }
 }

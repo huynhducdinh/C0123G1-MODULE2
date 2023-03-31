@@ -1,9 +1,11 @@
 package module_2_apj.service.booking;
 
 import module_2_apj.molel.bookingorcontract.Booking;
+import module_2_apj.molel.furama.Villa;
 import module_2_apj.repositroy.booking.BookingRepo;
 import module_2_apj.repositroy.booking.IBookingRepo;
-import module_2_apj.service.villa.VillaService;
+import module_2_apj.service.villa.VillaServiceImpl;
+import module_2_apj.util.read_file.VillaReadFile;
 
 import java.util.List;
 import java.util.Scanner;
@@ -58,7 +60,7 @@ public class BookingServiceIml implements IBookingServive {
 
     }
 
-    static VillaService villaService = new VillaService();
+    static VillaServiceImpl villaService = new VillaServiceImpl();
 
     public static String tenDichVu() {
         boolean flag = true;
@@ -66,42 +68,25 @@ public class BookingServiceIml implements IBookingServive {
             System.out.println("Các loại thuê" +
                     "\n1. Villa" +
                     "\n2.House" +
-                    "\n3.Room");
+                    "\n3.room");
             System.out.println("Mời nhập kiểu thuê");
             String choss = sc.nextLine();
             switch (choss) {
                 case "1":
-                    System.out.println(villa());
+                 List<Villa> villas =  VillaReadFile.villaReadFile();
+                    for (int i = 0; i < villas.size(); i++) {
+                        System.out.println(villas.get(i));
+                    }
                     return "Villa";
                 case "2":
                     return "House";
                 case "3":
-                    return "Room";
+                    return "room";
             }
             return choss;
         } while (flag);
 
     }
 
-    public static String villa() {
-        boolean flag = true;
-        do {
-            System.out.println("chọn " +
-                    "\n1.đặt villa cho bạn" +
-                    "\n2.Kiểm tra đã đặt villa");
-            System.out.println("Mời nhập kiểu thuê");
-            String choss = sc.nextLine();
-            switch (choss) {
-                case "1":
-                    villaService.add();
-                    break;
-                case "2":
-                    villaService.display();
-                    break;
-            }
-            return choss;
-        } while (flag);
 
-
-    }
 }

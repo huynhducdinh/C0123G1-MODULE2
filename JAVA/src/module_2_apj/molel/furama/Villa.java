@@ -1,36 +1,62 @@
 package module_2_apj.molel.furama;
 
-// Villa   Diện tích hồ bơi
-public class Villa extends Cha1CuaFarama {
-    String sHoBoi;
 
+public class Villa extends Facility {
+
+    String tieuChuanPhong;
+    String dienTichHoBoi;
+    String soTang;
     public Villa() {
     }
 
-    public Villa(String tieuChuanPhong, int sotang, String sHoBoi) {
-        super(tieuChuanPhong, sotang);
-        this.sHoBoi = sHoBoi;
+
+    public Villa(String tenDichVu, double dienTich, double chiPhiThue, int soNguoiToiDa, String kieuThue, String tieuChuanPhong, String dienTichHoBoi, String soTang) {
+        super(tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue);
+        this.tieuChuanPhong = tieuChuanPhong;
+        this.dienTichHoBoi = dienTichHoBoi;
+        this.soTang = soTang;
     }
 
-    public String getsHoBoi() {
-        return sHoBoi;
+    public String getTieuChuanPhong() {
+        return tieuChuanPhong;
     }
 
-    public void setsHoBoi(String sHoBoi) {
-        this.sHoBoi = sHoBoi;
+    public void setTieuChuanPhong(String tieuChuanPhong) {
+        this.tieuChuanPhong = tieuChuanPhong;
+    }
+
+    public String getDienTichHoBoi() {
+        return dienTichHoBoi;
+    }
+
+    public void setDienTichHoBoi(String dienTichHoBoi) {
+        this.dienTichHoBoi = dienTichHoBoi;
+    }
+
+    public String getSoTang() {
+        return soTang;
+    }
+
+    public void setSoTang(String soTang) {
+        this.soTang = soTang;
     }
 
     @Override
     public String toString() {
         return "Villa{" +
-                " tieuChuanPhong='" + tieuChuanPhong + '\'' +
-                ",sotang=" + sotang +
-                ",sHoBoi='" + sHoBoi +
+                " tenDichVu='" + tenDichVu + '\'' +
+                ", dienTich='" + dienTich + '\'' +
+                ", chiPhiThue='" + chiPhiThue + '\'' +
+                ", soNguoiToiDa='" + soNguoiToiDa + '\'' +
+                ", kieuThue='" + kieuThue + '\'' +
+                ",tieuChuanPhong='" + tieuChuanPhong + '\'' +
+                ", dienTichHoBoi='" + dienTichHoBoi + '\'' +
+                ", soTang='" + soTang + '\'' +
                 '}';
     }
 
     public String convertLine4() {
         String COMMA = ",";
-        return getTieuChuanPhong() + COMMA + getSotang() + COMMA + getsHoBoi();
+        return getTenDichVu() + COMMA + getDienTich() + COMMA + getChiPhiThue()+ COMMA + getSoNguoiToiDa()+ COMMA + getKieuThue()+ COMMA + getTieuChuanPhong()+ COMMA + getDienTichHoBoi()+ COMMA + getSoTang();
     }
 }
