@@ -19,7 +19,7 @@ public class FacilityReadFile {
                 String[] arr;
                 while ((line = bufferedReader.readLine()) != null) {
                     arr = line.split(",");
-                    Facility facility = new Facility(arr[0], Double.parseDouble(arr[1]), Double.parseDouble(arr[2]), Integer.parseInt(arr[3]), arr[4]);
+                    Facility facility = new Facility(arr[0], arr[1], Double.parseDouble(arr[2]),Double.parseDouble(arr[2]), Integer.parseInt(arr[3]), arr[4]);
                     facilities.add(facility);
                 }
                 bufferedReader.close();

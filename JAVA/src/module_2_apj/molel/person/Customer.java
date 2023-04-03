@@ -3,34 +3,34 @@ package module_2_apj.molel.person;
 //Số hợp đồng, mã bookingtxt, Số tiền cọc trước, Tổng số tiền thanh toán, mã khách hàng.
 //  hợp đồng của khách hàng.
 public class Customer extends PersonCha {
-    String loaiKach;
-    String diaChi;
+    String typeOfGuest;
+    String address;
 
 
 
     public Customer() {
     }
 
-    public Customer(String name, String gender, String codee, String birday, String sdt, String cmnd, String email, String loaiKach, String diaChi) {
-        super(name, gender, codee, birday, sdt, cmnd, email);
-        this.loaiKach = loaiKach;
-        this.diaChi = diaChi;
+    public Customer(String name, String gender, String codee, String birth, String phone, String citizen, String email, String typeOfGuest, String address) {
+        super(name, gender, codee, birth, phone, citizen, email);
+        this.typeOfGuest = typeOfGuest;
+        this.address = address;
     }
 
-    public String getLoaiKach() {
-        return loaiKach;
+    public String getTypeOfGuest() {
+        return typeOfGuest;
     }
 
-    public void setLoaiKach(String loaiKach) {
-        this.loaiKach = loaiKach;
+    public void setTypeOfGuest(String typeOfGuest) {
+        this.typeOfGuest = typeOfGuest;
     }
 
-    public String getDiaChi() {
-        return diaChi;
+    public String getAddress() {
+        return address;
     }
 
-    public void setDiaChi(String diaChi) {
-        this.diaChi = diaChi;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     @Override
@@ -39,17 +39,17 @@ public class Customer extends PersonCha {
                 " name='" + name + '\'' +
                 ", gender='" + gender + '\'' +
                 ", codee=" + codee +
-                ", birday='" + birday + '\'' +
-                ", sdt=" + sdt +
-                ", cmnd=" + cmnd +
+                ", birday='" + birth + '\'' +
+                ", phone=" + phone +
+                ", citizen=" + citizen +
                 ", email='" + email + '\'' +
-                ",loaiKach='" + loaiKach + '\'' +
-                ", diaChi='" + diaChi + '\'' +
+                ",typeOfGuest='" + typeOfGuest + '\'' +
+                ", Address='" + address + '\'' +
                 '}';
     }
     public String convertLine1(){
         String COMMA= ",";
-        return getName()+COMMA+getGender()+COMMA+getCodee()+COMMA+getBirday()+COMMA+getSdt()+COMMA+getCmnd()+COMMA+getEmail()+COMMA+getLoaiKach()+COMMA+getDiaChi();
+        return getName()+COMMA+getGender()+COMMA+getCodee()+COMMA+ getBirth()+COMMA+ getPhone()+COMMA+ getCitizen()+COMMA+getEmail()+COMMA+ getTypeOfGuest()+COMMA+ getAddress();
 
     }
 }

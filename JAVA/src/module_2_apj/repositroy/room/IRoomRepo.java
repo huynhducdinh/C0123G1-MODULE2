@@ -2,9 +2,9 @@ package module_2_apj.repositroy.room;
 
 import module_2_apj.molel.furama.Room;
 
-import java.util.List;
+import java.util.Map;
 
 public interface IRoomRepo {
-    List<Room> getDisplayRom();
-    void addRom(Room room);
+    Map<Room, Integer> getDisplayRom();
+    void addRom(Map<Room,Integer>roomIntegerMap);
 }

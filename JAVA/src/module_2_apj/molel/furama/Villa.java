@@ -3,60 +3,60 @@ package module_2_apj.molel.furama;
 
 public class Villa extends Facility {
 
-    String tieuChuanPhong;
-    String dienTichHoBoi;
-    String soTang;
+    String roomStandard;
+    double poolArea;
+    int numberOfFloors;
     public Villa() {
     }
 
-
-    public Villa(String tenDichVu, double dienTich, double chiPhiThue, int soNguoiToiDa, String kieuThue, String tieuChuanPhong, String dienTichHoBoi, String soTang) {
-        super(tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue);
-        this.tieuChuanPhong = tieuChuanPhong;
-        this.dienTichHoBoi = dienTichHoBoi;
-        this.soTang = soTang;
+    public Villa(String codeService, String nameService, double acreage, double rentalCosts, int manyPeople, String rentalType, String roomStandard, double poolArea, int numberOfFloors) {
+        super(codeService, nameService, acreage, rentalCosts, manyPeople, rentalType);
+        this.roomStandard = roomStandard;
+        this.poolArea = poolArea;
+        this.numberOfFloors = numberOfFloors;
     }
 
-    public String getTieuChuanPhong() {
-        return tieuChuanPhong;
+    public String getRoomStandard() {
+        return roomStandard;
     }
 
-    public void setTieuChuanPhong(String tieuChuanPhong) {
-        this.tieuChuanPhong = tieuChuanPhong;
+    public void setRoomStandard(String roomStandard) {
+        this.roomStandard = roomStandard;
     }
 
-    public String getDienTichHoBoi() {
-        return dienTichHoBoi;
+    public double getPoolArea() {
+        return poolArea;
     }
 
-    public void setDienTichHoBoi(String dienTichHoBoi) {
-        this.dienTichHoBoi = dienTichHoBoi;
+    public void setPoolArea(double poolArea) {
+        this.poolArea = poolArea;
     }
 
-    public String getSoTang() {
-        return soTang;
+    public int getNumberOfFloors() {
+        return numberOfFloors;
     }
 
-    public void setSoTang(String soTang) {
-        this.soTang = soTang;
+    public void setNumberOfFloors(int numberOfFloors) {
+        this.numberOfFloors = numberOfFloors;
     }
 
     @Override
     public String toString() {
         return "Villa{" +
-                " tenDichVu='" + tenDichVu + '\'' +
-                ", dienTich='" + dienTich + '\'' +
-                ", chiPhiThue='" + chiPhiThue + '\'' +
-                ", soNguoiToiDa='" + soNguoiToiDa + '\'' +
-                ", kieuThue='" + kieuThue + '\'' +
-                ",tieuChuanPhong='" + tieuChuanPhong + '\'' +
-                ", dienTichHoBoi='" + dienTichHoBoi + '\'' +
-                ", soTang='" + soTang + '\'' +
+                " codeService='" + codeService + '\'' +
+                ", nameService='" + nameService + '\'' +
+                ", acreage='" + acreage + '\'' +
+                ", rentalCosts='" + rentalCosts + '\'' +
+                ", manyPeople='" + manyPeople + '\'' +
+                ", rentalType='" + rentalType + '\'' +
+                ",roomStandard='" + roomStandard + '\'' +
+                ", poolArea='" + poolArea + '\'' +
+                ", numberOfFloors='" + numberOfFloors + '\'' +
                 '}';
     }
 
     public String convertLine4() {
         String COMMA = ",";
-        return getTenDichVu() + COMMA + getDienTich() + COMMA + getChiPhiThue()+ COMMA + getSoNguoiToiDa()+ COMMA + getKieuThue()+ COMMA + getTieuChuanPhong()+ COMMA + getDienTichHoBoi()+ COMMA + getSoTang();
+        return getCodeService()+COMMA+getNameService() + COMMA + getAcreage() + COMMA + getRentalCosts()+ COMMA + getManyPeople()+ COMMA + getRentalType()+ COMMA + getRoomStandard()+ COMMA + getPoolArea()+ COMMA + getNumberOfFloors();
     }
 }

@@ -5,22 +5,23 @@ import module_2_apj.util.read_file.VillaReadFile;
 import module_2_apj.util.wrtie_file.VillaWriteFile;
 
 import java.util.List;
+import java.util.Map;
 
 public class VillaRepo implements IVillaRepo {
 
-    static List<Villa> villaList = VillaReadFile.villaReadFile();
+    static Map<Villa,Integer> villaList = VillaReadFile.villaReadFile();
 
-    public static void writeFileVilla(List<Villa> villaList) {
+    public static void writeFileVilla(Map<Villa,Integer> villaList) {
         VillaWriteFile.writeFileVilla(villaList);
     }
 
     @Override
-    public List<Villa> getAllDisplay() {
+    public Map<Villa,Integer> getAllDisplay() {
         return villaList;
     }
 
     @Override
-    public void addVilla(Villa villa1) {
-        writeFileVilla(villaList);
+    public void addVilla(Map<Villa,Integer>villaIntegerMap) {
+        writeFileVilla(villaIntegerMap);
     }
 }

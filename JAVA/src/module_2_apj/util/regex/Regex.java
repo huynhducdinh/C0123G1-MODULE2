@@ -1,5 +1,7 @@
 package module_2_apj.util.regex;
 
+import module_2_apj.method.CheckTrueOfFalse;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -9,6 +11,13 @@ public class Regex {
 
     public static boolean checkName(String serviceName) {
         Pattern pattern = Pattern.compile(REGEX_NAME);
+        Matcher matcher = pattern.matcher(serviceName);
+        return matcher.matches();
+
+    } private static final String REGEX_NAME_SERVICE = "^[A-Z][a-z]+$";
+
+    public static boolean checkNameService(String serviceName) {
+        Pattern pattern = Pattern.compile(REGEX_NAME_SERVICE);
         Matcher matcher = pattern.matcher(serviceName);
         return matcher.matches();
 
@@ -35,7 +44,7 @@ public class Regex {
     }
 
     //    này tháng năm sinh
-    private static final String REGEX_BIRTH = "^(([0-2][0-9])|3[0-1])[\\/|-](([0][0-9])|1[0-2])[\\/|-]((19((2[4-9])|([3-9][0-9])))|200[0-5])$";
+    private static final String REGEX_BIRTH = "^(([0][1-9])|3[0-1])[\\/|-](([0][0-9])|1[0-2])[\\/|-]((19((2[4-9])|([3-9][0-9])))|200[0-5])$";
 
     public static boolean checkBirth(String birth) {
         Pattern pattern = Pattern.compile(REGEX_BIRTH);
@@ -44,11 +53,25 @@ public class Regex {
     }
 
     //    mã khách hàng
-    private static final String REGEX_CODE = "^(SV)(VL|HO|RO)\\-[0-9]{4}$";
+    private static final String REGEX_CODE_VL = "^(SV)(VL)\\-[0-9]{4}$";
 
-    public static boolean checkCode(String code) {
-        Pattern pattern = Pattern.compile(REGEX_CODE);
+    public static boolean checkCodeVl(String code) {
+        Pattern pattern = Pattern.compile(REGEX_CODE_VL);
         Matcher matcher = pattern.matcher(code);
+        return matcher.matches();
+    }
+    private static final String REGEX_CODE_HO = "^(SV)(HO)\\-[0-9]{4}$";
+
+    public static boolean checkCodeHo(String code1) {
+        Pattern pattern = Pattern.compile(REGEX_CODE_HO);
+        Matcher matcher = pattern.matcher(code1);
+        return matcher.matches();
+    }
+    private static final String REGEX_CODE_RO = "^(SV)(RO)\\-[0-9]{4}$";
+
+    public static boolean checkCodeRo(String code2) {
+        Pattern pattern = Pattern.compile(REGEX_CODE_RO);
+        Matcher matcher = pattern.matcher(code2);
         return matcher.matches();
     }
 
@@ -79,5 +102,9 @@ public class Regex {
         Pattern pattern = Pattern.compile(REGEX_ADDRESS);
         Matcher matcher = pattern.matcher(address);
         return matcher.matches();
+    }
+
+    public static void main(String[] args) {
+        CheckTrueOfFalse.checkNameService();
     }
 }

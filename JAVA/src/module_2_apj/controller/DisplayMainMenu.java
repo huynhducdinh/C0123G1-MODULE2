@@ -29,14 +29,13 @@ public class DisplayMainMenu {
     public static void displayMenu() {
         boolean flag = true;
         do {
-            System.out.println("Danh sách quản lí hồ sơ " +
-                    "\n 1.employee Management" +
-                    "\n 2.customer Management" +
+            System.out.println("List of managers and managers of Furama. resort " +
+                    "\n 1.Employee Management" +
+                    "\n 2.Customer Management" +
                     "\n 3.Facility Management " +
                     "\n 4.Booking Management" +
                     "\n 5.Promotion Management" +
-                    "\n 6.Exit");
-            System.out.println("Chọn chức năng");
+                    "\n 6.Exit"+"|:|"+"Select function--->");
             int choose = Integer.parseInt(sc.nextLine());
             switch (choose) {
                 case 1:
@@ -56,7 +55,7 @@ public class DisplayMainMenu {
                     break;
                 case 6:
                     flag = false;
-                    System.out.println("Hết rồi");
+                    System.out.println("Exit");
                     break;
             }
         } while (flag);
@@ -66,31 +65,24 @@ public class DisplayMainMenu {
         boolean check;
         do {
             check = true;
-            System.out.println("Chọn chức năng của hạng mục 1" +
+            System.out.println("Select the function of item employees" +
                     "\n1.Display list employees" +
                     "\n2.Add new employee" +
                     "\n3.Edit employee" +
-                    "\n5.xx"+
-                    "\n4.Return main menu");
-            System.out.println("Chọn chức năng");
+                    "\n4.Return main menu"+"|:|"+"Select function--->");
             int choosee = Integer.parseInt(sc.nextLine());
             switch (choosee) {
                 case 1:
-                    System.out.println("Hiển thị danh sách nhân viên");
+                    System.out.println("Show list of employees");
                     employeeServiceIml.display();
                     break;
                 case 2:
-                    System.out.println("Thêm nhân viên mới");
+                    System.out.println("Add new staff");
                     employeeServiceIml.add();
                     break;
                 case 3:
-                    System.out.println("Chỉnh sửa nhân viên");
+                    System.out.println("Edit staff");
                     employeeServiceIml.update();
-                    break;
-                case 5:
-                    System.out.println("xao nhân viên");
-
-                    employeeServiceIml.delete();
                     break;
                 case 4:
                     check = false;
@@ -104,29 +96,24 @@ public class DisplayMainMenu {
         boolean check;
         do {
             check = true;
-            System.out.println("Chọn chức năng của hạng mụa 2" +
+            System.out.println("Select the function of the item customers" +
                     "\n1. Display list customers" +
                     "\n2. Add new customer" +
                     "\n3. Edit customer" +
-                    "\n5.coá" +
-                    "\n4. Return main menu");
-            System.out.println("Chọn chức năng");
+                    "\n4. Return main menu"+"|:|"+"Select function--->");
             int choosee = Integer.parseInt(sc.nextLine());
             switch (choosee) {
                 case 1:
-                    System.out.println("Hiển thị danh sách khách hàng");
+                    System.out.println("Show list of customers");
                     customerServiceIml.display();
                     break;
                 case 2:
-                    System.out.println("Thêm khách hàng mới");
+                    System.out.println("Add new customers");
                     customerServiceIml.add();
                     break;
                 case 3:
-                    System.out.println("Chỉnh sửa khách hàng");
+                    System.out.println("Edit customers");
                     customerServiceIml.update();
-                    break;
-                case 5:
-                    customerServiceIml.delete();
                     break;
                 case 4:
                     check = false;
@@ -139,24 +126,23 @@ public class DisplayMainMenu {
         boolean check;
         do {
             check = true;
-            System.out.println("Chọn chức năng của hạng mụa 3" +
+            System.out.println("Select the function of the item facility" +
                     "\n1. Display list facility" +
                     "\n2. Add new facility" +
                     "\n3. Display list facility maintenance" +
-                    "\n4. Return main menu");
-            System.out.println("Chọn chức năng");
+                    "\n4. Return main menu"+"|:|"+"Select function--->");
             int choosee = Integer.parseInt(sc.nextLine());
             switch (choosee) {
                 case 1:
-                    System.out.println("danh sách hiển thị cơ sở");
+                    System.out.println("Base display list");
                     facilityServiceImpl.display();
                     break;
                 case 2:
-                    System.out.println("Thêm cơ sở mới");
+                    System.out.println("Add a new facility");
                     facilityServiceImpl.add();
                     break;
                 case 3:
-                    System.out.println("Hiển thị danh sách bảo trì cơ sở");
+                    System.out.println("Show facility maintenance list");
                     facilityServiceImpl.displaymaintenance();
                     break;
                 case 4:
@@ -170,34 +156,33 @@ public class DisplayMainMenu {
         boolean flag;
         do {
             flag = true;
-            System.out.println("Chọn chức năng của hạng mụa 4" +
-                    "\n1. Add new bookingtxt" +
-                    "\n2. Display list bookingtxt" +
+            System.out.println("Select the function of the item booking" +
+                    "\n1. Add new booking" +
+                    "\n2. Display list booking" +
                     "\n3. Create new contract" +
                     "\n4. Display list contracts" +
                     "\n5. Edit contracts" +
-                    "\n6. Return main menu");
-            System.out.println("Chọn chức năng");
+                    "\n6. Return main menu"+"|:|"+"Select function--->");
             int choosee = Integer.parseInt(sc.nextLine());
             switch (choosee) {
                 case 1:
-                    System.out.println("Thêm đặt chỗ mới");
+                    System.out.println("Add new booking");
                     bookingServiceIml.add();
                     break;
                 case 2:
-                    System.out.println("+Hiển thị danh sách đặt chỗ");
+                    System.out.println("+Show reservation list");
                     bookingServiceIml.display();
                     break;
                 case 3:
-                    System.out.println("Tạo hợp đồng mới");
+                    System.out.println("Create a new contract");
                     hopDongThueServiceIml.add();
                     break;
                 case 4:
-                    System.out.println("Hiển thị danh sách hợp đồng");
+                    System.out.println("Show contract list");
                     hopDongThueServiceIml.display();
                     break;
                 case 5:
-                    System.out.println("Chỉnh sửa hợp đồng");
+                    System.out.println("Edit contract");
                     hopDongThueServiceIml.update();
                     break;
                 case 6:
@@ -211,19 +196,18 @@ public class DisplayMainMenu {
         boolean flag;
         do {
             flag = true;
-            System.out.println("Chọn chức năng của hạng mụa 4" +
+            System.out.println("Select the function of the item promotion" +
                     "\n 1.Display list customers use service" +
                     "\n2. Display list customers get voucher" +
-                    "\n3. Return main menu");
-            System.out.println("Chọn chức năng");
+                    "\n3. Return main menu"+"|:|"+"Select function--->");
             int choosee = Integer.parseInt(sc.nextLine());
             switch (choosee) {
                 case 1:
-                    System.out.println("+Hiển thị danh sách khách hàng sử dụng dịch vụ");
+                    System.out.println("+Display a list of customers using the service");
                     promotionServiceIml.display();
                     break;
                 case 2:
-                    System.out.println("Hiển thị danh sách khách hàng nhận voucher");
+                    System.out.println("Display the list of customers receiving vouchers");
                     promotionServiceIml.displayVoucher();
                     break;
                 case 3:

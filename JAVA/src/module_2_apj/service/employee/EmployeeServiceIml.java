@@ -10,11 +10,11 @@ import java.util.*;
 public class EmployeeServiceIml implements IEmployessService {
     static Scanner sc = new Scanner(System.in);
     static IEmployeeRepo employeeRepo = new EmployeeRepo();
-    List<Employee> employeeList3 = employeeRepo.getAllDisplay();
+    static List<Employee> employeeList = employeeRepo.getAllDisplay();
 
     @Override
     public void display() {
-        for (Employee e : employeeList3) {
+        for (Employee e : employeeList) {
             System.out.println(e);
         }
     }
@@ -33,56 +33,88 @@ public class EmployeeServiceIml implements IEmployessService {
         double wage = CheckTrueOfFalse.checkWage();
         Employee employee = (new Employee(name, gender, id, brith, phone, citizen, email, level, location, wage));
         employeeRepo.add(employee);
+        System.out.println("Successfully added new");
     }
 
 
     @Override
     public void update() {
-        System.out.println("Nội dung chỉnh sửa nhân viên");
-        System.out.println("nhập mã cần sửa :");
-        String codee = sc.nextLine();
-        for (int i = 0; i < employeeList3.size(); i++) {
-            if (employeeList3.get(i).getCodee() == codee) {
-                String name = CheckTrueOfFalse.checkName();
-                String gender = CheckTrueOfFalse.checkGender();
-                String brith = CheckTrueOfFalse.checkBrith();
-                String phone = CheckTrueOfFalse.checkNumberPhone();
-                String citizen = CheckTrueOfFalse.checkCitizen();
-                String email = CheckTrueOfFalse.checkEmail();
-                String level = CheckTrueOfFalse.level();
-                String location = CheckTrueOfFalse.location();
-                double wage = CheckTrueOfFalse.checkWage();
-                employeeList3.set(i, new Employee(name, gender, codee, brith, phone, citizen, email, level, location, wage));
-                employeeRepo.update(employeeList3);
+        boolean flag;
+        String customerCodeSearch = "";
+        System.out.println("Look for the code to edit");
+        do {
+            flag = false;
+            customerCodeSearch=sc.nextLine();
+            if (checkCode(customerCodeSearch)){
+                flag=true;
+                System.out.println("Employee ID already in the list|Start modifying employee ");
+            }else {
+                System.out.println("Employee code does not exist |Please re-enter");
+            }
+
+        } while (!flag);
+        String name = CheckTrueOfFalse.checkName();
+        String gender = CheckTrueOfFalse.checkGender();
+        String brith = CheckTrueOfFalse.checkBrith();
+        String phone = CheckTrueOfFalse.checkNumberPhone();
+        String citizen = CheckTrueOfFalse.checkCitizen();
+        String email = CheckTrueOfFalse.checkEmail();
+        String level = CheckTrueOfFalse.level();
+        String location = CheckTrueOfFalse.location();
+        double wage = CheckTrueOfFalse.checkWage();
+        Employee employee = new Employee(name, gender, customerCodeSearch, brith, phone, citizen, email, level, location, wage);
+        for (int i = 0; i < employeeList.size(); i++) {
+            if (Objects.equals(employeeList.get(i).getCodee(),customerCodeSearch)) {
+                employeeList.set(i, employee);
+                employeeRepo.update(employeeList);
                 break;
             }
         }
+        System.out.println("Update successful");
     }
 
     @Override
     public void delete() {
         List<Employee> employeeList4 = employeeRepo.getAllDisplay();
-        System.out.println("nhập mã cần xoá :");
+        System.out.println("Enter code to delete:");
         String code = sc.nextLine();
         for (int i = 0; i < employeeList4.size(); i++) {
             if (employeeList4.get(i).getCodee() == code) {
-                System.out.println("Bạn có muốn xoá  Mã  " + code + " này ko  " +
-                        "\n 1. Có" +
-                        "\n 2. Không");
-                System.out.println("Chọn chức năng");
+                System.out.println("Do you want to delete the Code?" + code + " \n" +
+                        "this is not  " +
+                        "\n 1. Have" +
+                        "\n 2. No");
+                System.out.println("\n" +
+                        "Select function");
                 int choss = Integer.parseInt(sc.nextLine());
                 switch (choss) {
                     case 1:
                         employeeList4.remove(employeeList4.get(i));
-                        System.out.println("Bạn xoá thành công");
+                        System.out.println("\n" +
+                                "You successfully deleted");
                         break;
                     case 2:
-                        System.out.println("Bạn đã không xoá");
+                        System.out.println("You didn't delete");
                         break;
                 }
                 return;
             }
         }
-        System.out.println("không tìm thấy mã học viên");
+        System.out.println("Student ID not found");
+    }
+
+    public static boolean checkCode(String id) {
+
+        int count = 0;
+        for (int i = 0; i < employeeList.size(); i++) {
+            if (Objects.equals(employeeList.get(i).getCodee(), id)) {
+                count++;
+            }
+        }
+        if (count != 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

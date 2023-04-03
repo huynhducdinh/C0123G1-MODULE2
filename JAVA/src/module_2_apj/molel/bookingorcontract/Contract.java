@@ -1,56 +1,56 @@
 package module_2_apj.molel.bookingorcontract;
 
-public  class Contract extends BokingAndContract {
+public  class Contract extends BookingAndContract {
 
-    String soHopDong;
-    String tienDatCoc;
-    String tongTien;
+    String someContracts;
+    String setMoney;
+    String sumMoney;
 
     public Contract() {
     }
-    public Contract(String maBooking, String maKhachHang, String soHopDong, String tenDatCoc, String tongTien) {
-        super(maBooking, maKhachHang);
-        this.soHopDong = soHopDong;
-        this.tienDatCoc = tenDatCoc;
-        this.tongTien = tongTien;
+    public Contract(String codeBooking, String codeClient, String someContracts, String setMoney, String sumMoney) {
+        super(codeBooking, codeClient);
+        this.someContracts = someContracts;
+        this.setMoney = setMoney;
+        this.sumMoney = sumMoney;
     }
 
     public String getSoHopDong() {
-        return soHopDong;
+        return someContracts;
     }
 
     public void setSoHopDong(String soHopDong) {
-        this.soHopDong = soHopDong;
+        this.someContracts = soHopDong;
     }
 
     public String getTienDatCoc() {
-        return tienDatCoc;
+        return setMoney;
     }
 
     public void setTienDatCoc(String tienDatCoc) {
-        this.tienDatCoc = tienDatCoc;
+        this.setMoney = tienDatCoc;
     }
 
-    public String getTongTien() {
-        return tongTien;
+    public String getSumMoney() {
+        return sumMoney;
     }
 
-    public void setTongTien(String tongTien) {
-        this.tongTien = tongTien;
+    public void setSumMoney(String sumMoney) {
+        this.sumMoney = sumMoney;
     }
 
     @Override
     public String toString() {
-        return "HopDongThue3{" +
-                "soHopDong='" + soHopDong + '\'' +
-                ", maBooking='" + maBooking + '\'' +
-                ", maKhhachHang='" + maKhachHang + '\'' +
-                ", tongTien=" + tongTien +
-                ", tenDatCoc=" + tienDatCoc +
+        return "Contract{" +
+                "someContracts='" + someContracts + '\'' +
+                ", codeBooking='" + codeBooking + '\'' +
+                ", codeClient='" + codeClient + '\'' +
+                ", setMoney=" + setMoney +
+                ", sumMoney=" + sumMoney +
                 '}';
     }
     public String convertLine5() {
         String COMMA = ",";
-        return getSoHopDong() + COMMA + getMaBooking() + COMMA + getMaKhachHang()+COMMA+getTongTien()+COMMA+ getTienDatCoc();
+        return getSoHopDong() + COMMA + getCodeBooking() + COMMA + getMaKhachHang()+COMMA+ getSumMoney()+COMMA+ getTienDatCoc();
     }
 }

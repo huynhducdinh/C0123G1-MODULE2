@@ -4,21 +4,21 @@ public abstract class PersonCha {
     String name;
     String gender;
     String codee;
-    String birday;
-    String sdt;
-    String cmnd;
+    String birth;
+    String phone;
+    String citizen;
     String email;
 
     public PersonCha() {
     }
 
-    public PersonCha(String name, String gender, String codee, String birday, String sdt, String cmnd, String email) {
+    public PersonCha(String name, String gender, String codee, String birth, String phone, String citizen, String email) {
         this.name = name;
         this.gender = gender;
         this.codee = codee;
-        this.birday = birday;
-        this.sdt = sdt;
-        this.cmnd = cmnd;
+        this.birth = birth;
+        this.phone = phone;
+        this.citizen = citizen;
         this.email = email;
     }
 
@@ -46,28 +46,28 @@ public abstract class PersonCha {
         this.codee = codee;
     }
 
-    public String getBirday() {
-        return birday;
+    public String getBirth() {
+        return birth;
     }
 
-    public void setBirday(String birday) {
-        this.birday = birday;
+    public void setBirth(String birth) {
+        this.birth = birth;
     }
 
-    public String getSdt() {
-        return sdt;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setSdt(String sdt) {
-        this.sdt = sdt;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getCmnd() {
-        return cmnd;
+    public String getCitizen() {
+        return citizen;
     }
 
-    public void setCmnd(String cmnd) {
-        this.cmnd = cmnd;
+    public void setCitizen(String citizen) {
+        this.citizen = citizen;
     }
 
     public String getEmail() {
@@ -84,9 +84,9 @@ public abstract class PersonCha {
                 "name='" + name + '\'' +
                 ", gender='" + gender + '\'' +
                 ", codee=" + codee +
-                ", birday='" + birday + '\'' +
-                ", sdt=" + sdt +
-                ", cmnd=" + cmnd +
+                ", birth='" + birth + '\'' +
+                ", phone=" + phone +
+                ", citizen=" + citizen +
                 ", email='" + email + '\'' +
                 '}';
     }

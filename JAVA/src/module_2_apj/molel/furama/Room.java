@@ -1,38 +1,39 @@
 package module_2_apj.molel.furama;
 
 public class Room extends Facility {
-   String dichVuRieng;
+   String privateService;
 
-    public Room() {
+    public Room(String nameService, double v, double acreage, int rentalCosts, String s, String rentalType, int i) {
 
     }
 
-    public Room(String tenDichVu, double dienTich, double chiPhiThue, int soNguoiToiDa, String kieuThue, String dichVuRieng) {
-        super(tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue);
-        this.dichVuRieng = dichVuRieng;
+    public Room(String codeService, String nameService, double acreage, double rentalCosts, int manyPeople, String rentalType, String privateService) {
+        super(codeService, nameService, acreage, rentalCosts, manyPeople, rentalType);
+        this.privateService = privateService;
     }
 
-    public String getDichVuRieng() {
-        return dichVuRieng;
+    public String getPrivateService() {
+        return privateService;
     }
 
-    public void setDichVuRieng(String dichVuRieng) {
-        this.dichVuRieng = dichVuRieng;
+    public void setPrivateService(String privateService) {
+        this.privateService = privateService;
     }
 
     @Override
     public String toString() {
         return "Room{" +
-                " tenDichVu='" + tenDichVu + '\'' +
-                ", dienTich='" + dienTich + '\'' +
-                ", chiPhiThue='" + chiPhiThue + '\'' +
-                ", soNguoiToiDa='" + soNguoiToiDa + '\'' +
-                ", kieuThue='" + kieuThue + '\'' +
-                ",dichVuRieng='" + dichVuRieng + '\'' +
+                " codeService='" + codeService + '\'' +
+                "  nameService='" + nameService + '\'' +
+                ", acreage='" + acreage + '\'' +
+                ", rentalCosts='" + rentalCosts + '\'' +
+                ", manyPeople='" + manyPeople + '\'' +
+                ", rentalType='" + rentalType + '\'' +
+                ",privateService='" + privateService + '\'' +
                 '}';
     }
     public String convertLin5() {
         String COMMA = ",";
-        return getTenDichVu() + COMMA + getDienTich() + COMMA + getChiPhiThue()+ COMMA + getSoNguoiToiDa()+ COMMA + getKieuThue()+COMMA+getDichVuRieng();
+        return getCodeService()+COMMA+getNameService() + COMMA + getAcreage() + COMMA + getRentalCosts()+ COMMA + getManyPeople()+ COMMA + getRentalType()+COMMA+ getPrivateService();
     }
 }

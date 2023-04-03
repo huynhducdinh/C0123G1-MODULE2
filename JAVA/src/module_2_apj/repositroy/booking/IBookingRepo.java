@@ -2,10 +2,10 @@ package module_2_apj.repositroy.booking;
 
 import module_2_apj.molel.bookingorcontract.Booking;
 
-import java.util.List;
+import java.util.Set;
 
 public interface IBookingRepo {
-    List<Booking> display();
+    Set<Booking> display();
 
 
     void add(Booking booking3);

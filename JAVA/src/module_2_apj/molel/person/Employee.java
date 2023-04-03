@@ -1,9 +1,5 @@
 package module_2_apj.molel.person;
 
-import module_2_apj.molel.person.PersonCha;
-
-import java.util.Comparator;
-
 //: Mã nhân viên, Họ tên, Ngày sinh, Giới tính, Số CMND, Số Điện Thoại, Email, Trình độ, Vị trí, lương
 public class Employee extends PersonCha {
 
@@ -15,8 +11,8 @@ public class Employee extends PersonCha {
 
     }
 
-    public Employee(String name, String gender, String codee, String birday, String sdt, String cmnd, String email, String qualification, String position, double salary) {
-        super(name, gender, codee, birday, sdt, cmnd, email);
+    public Employee(String name, String gender, String codee, String birth, String phone, String citizen, String email, String qualification, String position, double salary) {
+        super(name, gender, codee, birth, phone, citizen, email);
         this.qualification = qualification;
         this.position = position;
         this.salary = salary;
@@ -52,9 +48,9 @@ public class Employee extends PersonCha {
                 "  name='" + name + '\'' +
                 ", gender='" + gender + '\'' +
                 ", codee=" + codee +
-                ", birday='" + birday + '\'' +
-                ", sdt=" + sdt +
-                ", cmnd=" + cmnd +
+                ", birth='" + birth + '\'' +
+                ", phone=" + phone +
+                ", citizen=" + citizen +
                 ", email='" + email + '\'' +
                 " ,qualification='" + qualification + '\'' +
                 ", position='" + position + '\'' +
@@ -64,6 +60,6 @@ public class Employee extends PersonCha {
     }
 public String convertLine(){
         String COMMA =",";
-        return getName()+COMMA+getGender()+COMMA+getCodee()+COMMA+getBirday()+COMMA+getSdt()+COMMA+getCmnd()+COMMA+getEmail()+COMMA+getQualification()+COMMA+getPosition()+COMMA+getSalary();
+        return getName()+COMMA+getGender()+COMMA+getCodee()+COMMA+ getBirth()+COMMA+ getPhone()+COMMA+ getCitizen()+COMMA+getEmail()+COMMA+getQualification()+COMMA+getPosition()+COMMA+getSalary();
 }
 }

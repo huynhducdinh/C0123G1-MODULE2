@@ -2,7 +2,7 @@ package module_2_apj.molel.bookingorcontract;
 
 //mã bookingtxt, ngày bắt đầu, ngày kết thúc, mã khách hàng, tên dịch vụ, loại dịch vụ.//
 //của customer ( khách hàng)
-public class Booking extends BokingAndContract {
+public class Booking extends BookingAndContract {
 
 String startDate;
 String endDate;
@@ -54,17 +54,17 @@ String serviceType;
     @Override
     public String toString() {
         return "Booking3{" +
-                ", maBooking='" + maBooking + '\'' +
+                ", maBooking='" + codeBooking + '\'' +
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
-                ", maKhhachHang='" + maKhachHang + '\'' +
+                ", maKhhachHang='" + codeClient + '\'' +
                 ", serviceName='" + serviceName + '\'' +
                 ", serviceType='" + serviceType + '\'' +
                 '}';
     }
     public String convertLine3(){
         String COMMA= ",";
-        return getMaBooking()+COMMA+getStartDate()+COMMA+getEndDate()+COMMA+ getMaKhachHang()+COMMA+getServiceName()+COMMA+getServiceType();
+        return getCodeBooking()+COMMA+getStartDate()+COMMA+getEndDate()+COMMA+ getMaKhachHang()+COMMA+getServiceName()+COMMA+getServiceType();
 
     }
 }

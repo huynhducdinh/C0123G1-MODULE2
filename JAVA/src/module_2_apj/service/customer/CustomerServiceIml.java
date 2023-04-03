@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CustomerServiceIml implements ICustomerService {
-   static ICustomerRepo customerRepo = new CustomerRepo();
+    static ICustomerRepo customerRepo = new CustomerRepo();
     static Scanner sc = new Scanner(System.in);
 
     @Override
@@ -28,7 +28,7 @@ public class CustomerServiceIml implements ICustomerService {
         String id = CheckTrueOfFalse.inputId();
         String birth = CheckTrueOfFalse.checkBrith();
         String phone = CheckTrueOfFalse.checkNumberPhone();
-        String citizen =CheckTrueOfFalse.checkCitizen();
+        String citizen = CheckTrueOfFalse.checkCitizen();
         String email = CheckTrueOfFalse.checkEmail();
         String guest = CheckTrueOfFalse.rank();
         String address = CheckTrueOfFalse.checkAddresse();
@@ -39,20 +39,33 @@ public class CustomerServiceIml implements ICustomerService {
 
     @Override
     public void update() {
+
+        boolean flag;
+        int customerCodeSearch;
+        do {
+            try {
+                System.out.println("Search for the code to be edited");
+                customerCodeSearch = sc.nextInt();
+                flag = true;
+            }catch(NumberFormatException e){
+                System.out.println("Not Found");
+                flag=false;
+            }
+        } while (!flag);
         List<Customer> customerList = customerRepo.getAllDisplay();
-        System.out.println("nhập mã cần sửa :");
-        String codee =sc.nextLine();
+        System.out.println("enter code to edit :");
+        String codee = sc.nextLine();
         for (int i = 0; i < customerList.size(); i++) {
             if ((customerList.get(i).getCodee()) == codee) {
                 String name = CheckTrueOfFalse.checkName();
                 String gender = CheckTrueOfFalse.checkGender();
                 String birth = CheckTrueOfFalse.checkBrith();
                 String phone = CheckTrueOfFalse.checkNumberPhone();
-                String citizen =CheckTrueOfFalse.checkCitizen();
+                String citizen = CheckTrueOfFalse.checkCitizen();
                 String email = CheckTrueOfFalse.checkEmail();
                 String guest = CheckTrueOfFalse.rank();
                 String address = CheckTrueOfFalse.checkAddresse();
-                customerList.set(i, new Customer(name,gender,codee,birth,phone,citizen,email,guest,address));
+                customerList.set(i, new Customer(name, gender, codee, birth, phone, citizen, email, guest, address));
                 customerRepo.update(customerList);
                 break;
             }
@@ -61,29 +74,28 @@ public class CustomerServiceIml implements ICustomerService {
 
     @Override
     public void delete() {
-       List<Customer>customerList=customerRepo.getAllDisplay();
-        System.out.println("nhập mã cần xoá :");
+        List<Customer> customerList = customerRepo.getAllDisplay();
+        System.out.println("enter the code to delete :");
         String code = sc.nextLine();
         for (int i = 0; i < customerList.size(); i++) {
             if (customerList.get(i).getCodee() == code) {
-                System.out.println("Bạn có muốn xoá  Mã  " + code + " này ko  " +
-                        "\n 1. Có" +
-                        "\n 2. Không");
-                System.out.println("Chọn chức năng");
+                System.out.println("Do you want to delete this Code " + code + " " +
+                        "\n 1. Yes" +
+                        "\n 2. No");
+                System.out.println("Select function");
                 int choss = Integer.parseInt(sc.nextLine());
                 switch (choss) {
                     case 1:
                         customerList.remove(customerList.get(i));
-                        System.out.println("Bạn xoá thành công");
+                        System.out.println("You deleted successfully");
                         break;
                     case 2:
-                        System.out.println("Bạn đã không xoá");
+                        System.out.println("You did not delete");
                 }
                 return;
             }
         }
-        System.out.println("không tìm thấy mã kháwch hàng");
+        System.out.println("customer code not found");
     }
-
 
 }

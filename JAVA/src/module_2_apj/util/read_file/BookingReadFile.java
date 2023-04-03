@@ -5,10 +5,12 @@ import module_2_apj.molel.bookingorcontract.Booking;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class BookingReadFile {
-    public static List<Booking> booking3List(String path) {
-        List<Booking> booking3List = new ArrayList<>();
+    public static Set<Booking> booking3List(String path) {
+        Set<Booking> booking3List = new TreeSet<>();
         File file = new File(path);
         FileReader fileReader = null;
         if (file.exists()) {

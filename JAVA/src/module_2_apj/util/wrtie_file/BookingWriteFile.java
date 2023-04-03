@@ -7,9 +7,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
 public class BookingWriteFile {
-    public static void bookingWrite(String path, List<Booking> booking3List){
+    public static void bookingWrite(String path, Set<Booking> booking3List){
         File file=new File(path);
         FileWriter fileWriter=null;
         BufferedWriter bufferedWriter=null;

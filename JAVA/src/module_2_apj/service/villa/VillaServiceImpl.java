@@ -1,48 +1,75 @@
 package module_2_apj.service.villa;
 
+import module_2_apj.method.CheckTrueOfFalse;
+import module_2_apj.molel.furama.House;
 import module_2_apj.molel.furama.Villa;
 import module_2_apj.repositroy.villa.IVillaRepo;
 import module_2_apj.repositroy.villa.VillaRepo;
 import module_2_apj.service.facility.FacilityServiceImpl;
+import module_2_apj.util.wrtie_file.VillaWriteFile;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class VillaServiceImpl extends Villa implements IVillaService {
     static IVillaRepo villaRepo = new VillaRepo();
-    static List<Villa> villa1List = villaRepo.getAllDisplay();
+    static Map<Villa, Integer> villaList = villaRepo.getAllDisplay();
     static Scanner sc = new Scanner(System.in);
     FacilityServiceImpl facilityService = new FacilityServiceImpl();
 
     @Override
     public void display() {
-        for (Villa v : villa1List) {
-            System.out.println(v);
+        if (villaList.size() <= 0) {
+            System.out.println("Available Room List");
+        } else {
+            for (Map.Entry<Villa, Integer> entry : villaList.entrySet()) {
+                System.out.println(entry.getKey() + ":|:" + entry.getValue());
+            }
         }
+    }
+    @Override
+    public void addVilla() {
+        String id = CheckTrueOfFalse.checkCodeVl();
+        String name = CheckTrueOfFalse.checkNameService();
+        double acreage = CheckTrueOfFalse.checkAcreage();
+        double expense = CheckTrueOfFalse.checkExpense();
+        int sumPeople = CheckTrueOfFalse.checkPeople();
+        String rentalType = CheckTrueOfFalse.checkLeases();
+        String standard = CheckTrueOfFalse.checkStandard();
+        double acreages = CheckTrueOfFalse.checkAcreage();
+        int number = CheckTrueOfFalse.checkNumberOfFloors();
+//  Tên dịch vụ, Diện tích sử dụng, Chi phí thuê, Số lượng người tối đa, Kiểu thuê, Tiêu chuẩn phòng,Số tầng.
+        Villa villa = new Villa(id, name, acreage, expense, sumPeople, rentalType, standard, acreages, number);
+        villaList.put(villa,0);
+        villaRepo.addVilla(villaList);
     }
 
     @Override
-    public void addVilla() {
-        System.out.println("Nhập tên dịch vụ");
-        String name = sc.nextLine();
-        System.out.println("Nhập diện tích sử dụng");
-        double dienTich = sc.nextDouble();
-        System.out.println("Nhập chi phí thuê");
-        double num = sc.nextDouble();
-        System.out.println("Nhập số lượng người thuê");
-        int sum = sc.nextInt();
-        System.out.println("Nhập Kiểu thuê");
-        String kieuThue = sc.nextLine();
-        System.out.println("Nhập tiêu chuẩn phòng");
-        String phong = sc.nextLine();
-        System.out.println("Nhập số tầng ");
-        String number = sc.nextLine();
-        System.out.println("Nhập S hồ bơi");
-        String hoBoi = sc.nextLine();
-        Villa villa1 = new Villa(name, dienTich, num, sum, kieuThue, phong, number, hoBoi);
-        villa1List.add(villa1);
-        villaRepo.addVilla(villa1);
+    public boolean checkServiceNumberForBooking(String serviceNum) {
+        Set<Villa> villaSet=villaList.keySet();
+       for (Villa villa:villaSet){
+           if (villa.getCodeService().equals(serviceNum)){
+               return true;
+           }
+       }
+        return false;
+    }
 
+    @Override
+    public void updateTimesOfUsingService(String serviceNum) {
+        Set<Villa> villaSet=villaList.keySet();
+        Villa updateVilaa=null;
+        for(Villa villa:villaSet){
+            if (villa.getCodeService().equals(serviceNum)){
+                updateVilaa=villa;
+                break;
+            }
+        }
+        int usingTimes=villaList.get(updateVilaa);
+            villaList.put(updateVilaa,usingTimes+1);
+            VillaWriteFile.writeFileVilla(villaList);
 
     }
 }

@@ -2,53 +2,53 @@ package module_2_apj.molel.furama;
 
 // House được kế thừ từ Facility và có thêm các chức năng khác :Tiêu chuẩn phòng, Số tầng
 public class House extends Facility {
-    String tieuChuanPhong;
+    String roomStandard;
 
-    int soTang;
+    int NumberOfFloors;
 
     public House() {
 
     }
 
-    public House(String tenDichVu, double dienTich, double chiPhiThue, int soNguoiToiDa, String kieuThue, String tieuChuanPhong, int soTang) {
-        super(tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue);
-        this.tieuChuanPhong = tieuChuanPhong;
-
-        this.soTang = soTang;
+    public House(String codeService, String nameService, double acreage, double rentalCosts, int manyPeople, String rentalType, String roomStandard, int numberOfFloors) {
+        super(codeService, nameService, acreage, rentalCosts, manyPeople, rentalType);
+        this.roomStandard = roomStandard;
+        NumberOfFloors = numberOfFloors;
     }
 
-    public String getTieuChuanPhong() {
-        return tieuChuanPhong;
+    public String getRoomStandard() {
+        return roomStandard;
     }
 
-    public void setTieuChuanPhong(String tieuChuanPhong) {
-        this.tieuChuanPhong = tieuChuanPhong;
+    public void setRoomStandard(String roomStandard) {
+        this.roomStandard = roomStandard;
     }
 
 
 
-    public int getSoTang() {
-        return soTang;
+    public int getNumberOfFloors() {
+        return NumberOfFloors;
     }
 
-    public void setSoTang(int soTang) {
-        this.soTang = soTang;
+    public void setNumberOfFloors(int numberOfFloors) {
+        this.NumberOfFloors = numberOfFloors;
     }
 
     @Override
     public String toString() {
         return "House{" +
-                "  tenDichVu='" + tenDichVu + '\'' +
-                ", dienTich='" + dienTich + '\'' +
-                ", chiPhiThue='" + chiPhiThue + '\'' +
-                ", soNguoiToiDa='" + soNguoiToiDa + '\'' +
-                ", kieuThue='" + kieuThue + '\'' +
-                ", tieuChuanPhong='" + tieuChuanPhong + '\'' +
-                ", soTang='" + soTang + '\'' +
+                "  codeService='" + codeService + '\'' +
+                "  nameService='" + nameService + '\'' +
+                ", acreage='" + acreage + '\'' +
+                ", rentalCosts='" + rentalCosts + '\'' +
+                ", manyPeople='" + manyPeople + '\'' +
+                ", rentalType='" + rentalType + '\'' +
+                ", roomStandard='" + roomStandard + '\'' +
+                ", NumberOfFloors='" + NumberOfFloors + '\'' +
                 '}';
     }
     public String convertLine6() {
         String COMMA = ",";
-        return getTenDichVu() + COMMA + getDienTich() + COMMA + getChiPhiThue()+ COMMA + getSoNguoiToiDa()+ COMMA + getKieuThue()+ COMMA + getTieuChuanPhong()+COMMA + getSoTang();
+        return getCodeService()+COMMA+getNameService() + COMMA + getAcreage() + COMMA + getRentalCosts()+ COMMA + getManyPeople()+ COMMA + getRentalType()+ COMMA + getRoomStandard()+COMMA + getNumberOfFloors();
     }
 }

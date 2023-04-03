@@ -1,46 +1,57 @@
 package module_2_apj.service.booking;
 
 import module_2_apj.molel.bookingorcontract.Booking;
+import module_2_apj.molel.furama.Facility;
 import module_2_apj.molel.furama.Villa;
+import module_2_apj.molel.person.Customer;
 import module_2_apj.repositroy.booking.BookingRepo;
 import module_2_apj.repositroy.booking.IBookingRepo;
+import module_2_apj.repositroy.customer.CustomerRepo;
+import module_2_apj.repositroy.customer.ICustomerRepo;
+import module_2_apj.service.facility.FacilityServiceImpl;
+import module_2_apj.service.facility.IFacilityService;
 import module_2_apj.service.villa.VillaServiceImpl;
 import module_2_apj.util.read_file.VillaReadFile;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class BookingServiceIml implements IBookingServive {
     static IBookingRepo bookingRepo = new BookingRepo();
     static Scanner sc = new Scanner(System.in);
-    static List<Booking> bookingList = bookingRepo.display();
-
+    static Set<Booking> bookingList = bookingRepo.display();
+    IFacilityService iFacilityService = new FacilityServiceImpl();
+    static ICustomerRepo iCustomerRepo=new CustomerRepo();
 
     @Override
     public void display() {
-        for (Booking b : bookingList) {
-            System.out.println(b);
-        }
+
     }
 
     @Override
     public void add() {
-        System.out.println("Nhập mã Booking");
+       List<Customer>customerList= iCustomerRepo.getAllDisplay();
+        for (Customer c:customerList){
+            System.out.println(c);
+        }
+        System.out.print("Enter Booking Code-->");
         String id = sc.nextLine();
-        System.out.println("Nhập mã Khách hàng");
+        System.out.print("Enter Customer Code-->");
         String code = sc.nextLine();
-        System.out.println("Nhập ngày bắt đầu");
-        String batDau = sc.nextLine();
-        System.out.println("Nhập ngày kết thúc");
-        String ketThuc = sc.nextLine();
-        System.out.println("Nhập tên dịch vụ");
-        String name1 = tenDichVu();
-        System.out.println("Nhập  loại dịch vụ.");
+        System.out.print("Enter start date-->");
+        String start = sc.nextLine();
+        System.out.print("Enter end date-->");
+        String end = sc.nextLine();
+        System.out.print("Enter service name-->");
+        String name = serviceName();
+        System.out.print("Enter service type-->");
         String name2 = sc.nextLine();
-        Booking booking = new Booking(id, code, batDau, ketThuc, name1, name2);
+        Booking booking = new Booking(id, code, start, end, name, name2);
         bookingList.add(booking);
         bookingRepo.add(booking);
     }
+
 
     @Override
     public void update() {
@@ -62,21 +73,17 @@ public class BookingServiceIml implements IBookingServive {
 
     static VillaServiceImpl villaService = new VillaServiceImpl();
 
-    public static String tenDichVu() {
+    public static String serviceName() {
         boolean flag = true;
         do {
-            System.out.println("Các loại thuê" +
+            System.out.println("Rent Types" +
                     "\n1. Villa" +
                     "\n2.House" +
                     "\n3.room");
-            System.out.println("Mời nhập kiểu thuê");
+            System.out.print("Please enter rental type");
             String choss = sc.nextLine();
             switch (choss) {
                 case "1":
-                 List<Villa> villas =  VillaReadFile.villaReadFile();
-                    for (int i = 0; i < villas.size(); i++) {
-                        System.out.println(villas.get(i));
-                    }
                     return "Villa";
                 case "2":
                     return "House";
@@ -87,6 +94,4 @@ public class BookingServiceIml implements IBookingServive {
         } while (flag);
 
     }
-
-
 }

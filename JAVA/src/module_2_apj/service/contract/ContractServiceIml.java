@@ -8,52 +8,51 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ContractServiceIml implements module_2_apj.service.contract.IContract {
-    static IContract hopDongThueRepo = new ContractRepo();
-    List<Contract> hopDongThue3List = hopDongThueRepo.getAllDisplay();
+    static IContract contractRepo = new ContractRepo();
+    List<Contract> contractList = contractRepo.getAllDisplay();
     static Scanner sc = new Scanner(System.in);
-
     @Override
+
     public void display() {
-        for (Contract h : hopDongThue3List) {
+        for (Contract h : contractList) {
             System.out.println(h);
         }
     }
 
     @Override
     public void add() {
-        System.out.println("Nhập số hợp đồng");
+        System.out.print("Enter contract number");
         String num = sc.nextLine();
-        System.out.println("Nhập mã Booking");
+        System.out.print("Enter Booking Code");
         String id = sc.nextLine();
-        System.out.println("Nhập mã Khách hàng");
+        System.out.print("Enter Customer Code");
         String code = sc.nextLine();
-        System.out.println("Nhập tổng tiền thuê");
+        System.out.print("Enter total rent");
         String sum = sc.nextLine();
-        System.out.println("Nhập tiền trả trước");
+        System.out.print("Enter prepayment");
         String sum1 = sc.nextLine();
-        Contract hopDongThue3 = new Contract(num, id, code, sum, sum1);
-        hopDongThue3List.add(hopDongThue3);
-        hopDongThueRepo.add(hopDongThue3);
+        Contract contract = new Contract(num, id, code, sum, sum1);
+        contractList.add(contract);
+        contractRepo.add(contract);
 
     }
-
     @Override
     public void update() {
-        System.out.println("Nhập mã số hợp đồng cần sửa");
+        System.out.print("Enter the contract number to edit");
         String codee = sc.nextLine();
-        for (Contract h : hopDongThue3List) {
+        for (Contract h : contractList) {
             if (h.getSoHopDong().equals(codee)) {
-                System.out.println("Nhập số hợp đồng mới");
+                System.out.print("Enter new contract number");
                 h.setSoHopDong(sc.nextLine());
-                System.out.println("Nhập mã Booking mới");
-                h.setMaBooking(sc.nextLine());
-                System.out.println("Nhập mã Khách hàng mới");
+                System.out.print("Enter a new Booking code");
+                h.setCodeBooking(sc.nextLine());
+                System.out.print("Enter New Customer Code");
                 h.setMaKhachHang(sc.nextLine());
-                System.out.println("Nhập tổng tiền thuê mới");
-                h.setTongTien(sc.nextLine());
-                System.out.println("Nhập tiền trả trước mới");
+                System.out.print("Enter new total rent");
+                h.setSumMoney(sc.nextLine());
+                System.out.print("Enter new prepayment");
                 h.setTienDatCoc(sc.nextLine());
-                hopDongThueRepo.update(h);
+                contractRepo.update(h);
                 break;
             }
         }
