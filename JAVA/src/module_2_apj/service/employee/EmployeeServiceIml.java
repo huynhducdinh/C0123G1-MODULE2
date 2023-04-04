@@ -21,56 +21,65 @@ public class EmployeeServiceIml implements IEmployessService {
 
     @Override
     public void add() {
-        String name = CheckTrueOfFalse.checkName();
-        String gender = CheckTrueOfFalse.checkGender();
-        String id = CheckTrueOfFalse.inputId();
-        String brith = CheckTrueOfFalse.checkBrith();
-        String phone = CheckTrueOfFalse.checkNumberPhone();
-        String citizen = CheckTrueOfFalse.checkCitizen();
-        String email = CheckTrueOfFalse.checkEmail();
-        String level = CheckTrueOfFalse.level();
-        String location = CheckTrueOfFalse.location();
-        double wage = CheckTrueOfFalse.checkWage();
-        Employee employee = (new Employee(name, gender, id, brith, phone, citizen, email, level, location, wage));
-        employeeRepo.add(employee);
-        System.out.println("Successfully added new");
+        try {
+            String name = CheckTrueOfFalse.checkName();
+            String gender = CheckTrueOfFalse.checkGender();
+            String id = CheckTrueOfFalse.inputId();
+            String brith = CheckTrueOfFalse.checkBrith();
+            String phone = CheckTrueOfFalse.checkNumberPhone();
+            String citizen = CheckTrueOfFalse.checkCitizen();
+            String email = CheckTrueOfFalse.checkEmail();
+            String level = CheckTrueOfFalse.level();
+            String location = CheckTrueOfFalse.location();
+            double wage = CheckTrueOfFalse.checkWage();
+            Employee employee = (new Employee(name, gender, id, brith, phone, citizen, email, level, location, wage));
+            employeeRepo.add(employee);
+            System.out.println("Successfully added new");
+        }catch (StringIndexOutOfBoundsException e){
+            e.printStackTrace();
+        }
     }
 
 
     @Override
     public void update() {
         boolean flag;
-        String customerCodeSearch = "";
-        System.out.println("Look for the code to edit");
-        do {
-            flag = false;
-            customerCodeSearch=sc.nextLine();
-            if (checkCode(customerCodeSearch)){
-                flag=true;
-                System.out.println("Employee ID already in the list|Start modifying employee ");
-            }else {
-                System.out.println("Employee code does not exist |Please re-enter");
-            }
+        try {
+            String bookingCodeSearch = "";
+            System.out.println("Look for the code to edit");
+            do {
+                flag = false;
+                bookingCodeSearch=sc.nextLine();
+                if (checkCode(bookingCodeSearch)){
+                    flag=true;
+                    System.out.println("Employee ID already in the list|Start modifying employee ");
+                }else {
+                    System.out.println("Employee code does not exist |Please re-enter");
+                }
 
-        } while (!flag);
-        String name = CheckTrueOfFalse.checkName();
-        String gender = CheckTrueOfFalse.checkGender();
-        String brith = CheckTrueOfFalse.checkBrith();
-        String phone = CheckTrueOfFalse.checkNumberPhone();
-        String citizen = CheckTrueOfFalse.checkCitizen();
-        String email = CheckTrueOfFalse.checkEmail();
-        String level = CheckTrueOfFalse.level();
-        String location = CheckTrueOfFalse.location();
-        double wage = CheckTrueOfFalse.checkWage();
-        Employee employee = new Employee(name, gender, customerCodeSearch, brith, phone, citizen, email, level, location, wage);
-        for (int i = 0; i < employeeList.size(); i++) {
-            if (Objects.equals(employeeList.get(i).getCodee(),customerCodeSearch)) {
-                employeeList.set(i, employee);
-                employeeRepo.update(employeeList);
-                break;
+            } while (!flag);
+            String name = CheckTrueOfFalse.checkName();
+            String gender = CheckTrueOfFalse.checkGender();
+            String brith = CheckTrueOfFalse.checkBrith();
+            String phone = CheckTrueOfFalse.checkNumberPhone();
+            String citizen = CheckTrueOfFalse.checkCitizen();
+            String email = CheckTrueOfFalse.checkEmail();
+            String level = CheckTrueOfFalse.level();
+            String location = CheckTrueOfFalse.location();
+            double wage = CheckTrueOfFalse.checkWage();
+            Employee employee = new Employee(name, gender, bookingCodeSearch, brith, phone, citizen, email, level, location, wage);
+            for (int i = 0; i < employeeList.size(); i++) {
+                if (Objects.equals(employeeList.get(i).getCodee(),bookingCodeSearch)) {
+                    employeeList.set(i, employee);
+                    employeeRepo.update(employeeList);
+                    break;
+                }
             }
+            System.out.println("Update successful");
+        }catch (NumberFormatException e){
+            e.printStackTrace();
         }
-        System.out.println("Update successful");
+
     }
 
     @Override

@@ -21,8 +21,8 @@ public class VillaServiceImpl extends Villa implements IVillaService {
 
     @Override
     public void display() {
-        if (villaList.size() <= 0) {
-            System.out.println("Available Room List");
+        if (villaList.size() == 0) {
+            System.out.println("There's nothing in this list");
         } else {
             for (Map.Entry<Villa, Integer> entry : villaList.entrySet()) {
                 System.out.println(entry.getKey() + ":|:" + entry.getValue());

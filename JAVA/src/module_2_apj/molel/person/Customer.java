@@ -38,7 +38,7 @@ public class Customer extends PersonCha {
         return "customer{" +
                 " name='" + name + '\'' +
                 ", gender='" + gender + '\'' +
-                ", codee=" + codee +
+                ", codeCustomer=" + codee +
                 ", birday='" + birth + '\'' +
                 ", phone=" + phone +
                 ", citizen=" + citizen +

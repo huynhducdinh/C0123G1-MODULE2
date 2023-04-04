@@ -31,46 +31,51 @@ public class FacilityServiceImpl implements IFacilityService {
 
 
     public void display() {
-        System.out.println("-++-List of hotel facilities-++-");
-        System.out.println("-++-Villa List-++-");
+        System.out.println("-----------------++-List of hotel facilities-++----------------");
+        System.out.println("-----------------Villa List-----------------");
         villaService.display();
-        System.out.println("-++-List of House-++-");
+        System.out.println("--------------------List of House------------------");
         houseService.display();
-        System.out.println("-++-List Room-++-");
+        System.out.println("--------------------List Room-------------------");
         roomService.display();
     }
 
     @Override
     public void add() {
         boolean check;
-        do {
-            check = true;
-            System.out.println("List of hotel facilities" +
-                    "\n1.Add New Villa" +
-                    "\n2.Add New House" +
-                    "\n3.Add New Room" +
-                    "\n4.Back to menu");
-            System.out.println("Select");
-            int choss = Integer.parseInt(sc.nextLine());
-            switch (choss) {
-                case 1:
-                    villaService.addVilla();
-                    break;
-                case 2:
-                    houseService.addHouse();
-                    break;
-                case 3:
-                    roomService.addRoom();
-                    break;
-                case 4:
-                    check = false;
-                    break;
-            }
-        } while (check);
+        try {
+            do {
+                check = true;
+                System.out.println("List of hotel facilities" +
+                        "\n1.Add New Villa" +
+                        "\n2.Add New House" +
+                        "\n3.Add New Room" +
+                        "\n4.Back to menu");
+                System.out.println("Select");
+                int poss = Integer.parseInt(sc.nextLine());
+                switch (poss) {
+                    case 1:
+                        villaService.addVilla();
+                        break;
+                    case 2:
+                        houseService.addHouse();
+                        break;
+                    case 3:
+                        roomService.addRoom();
+                        break;
+                    case 4:
+                        check = false;
+                        break;
+                }
+            } while (check);
+        }catch (NumberFormatException e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void update() {
+
     }
 
     @Override

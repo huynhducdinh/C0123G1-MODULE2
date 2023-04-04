@@ -8,10 +8,10 @@ public interface IBookingRepo {
     Set<Booking> display();
 
 
-    void add(Booking booking3);
+    void addBooking(Set<Booking> booking);
 
 
-    void update(Booking booking4s);
+    void update(Booking booking);
 
 
     void delete();

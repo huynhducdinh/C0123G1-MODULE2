@@ -7,9 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerReadFile {
-    public static List<Customer> comparators(String path) {
+    private static final String CUSTOMER_LIST_PATH = "src\\module_2_apj\\data\\customer.csv";
+
+    public static List<Customer> comparators() {
         List<Customer> customersRead = new ArrayList<>();
-        File file = new File(path);
+        File file = new File(CUSTOMER_LIST_PATH);
         FileReader fileReader = null;
         if (file.exists()) {
             try {

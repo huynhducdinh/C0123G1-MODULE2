@@ -1,6 +1,6 @@
 package module_2_apj.molel.furama;
 
-public class Facility {
+    public class Facility {
     String codeService;
     String nameService;
     double acreage;

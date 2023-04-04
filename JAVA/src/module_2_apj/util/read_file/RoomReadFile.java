@@ -11,7 +11,7 @@ import java.util.Map;
 public class RoomReadFile {
     private static final String ROOM_LEST_PATH = "src\\module_2_apj\\data\\room.csv";
 
-    public static Map<Room, Integer> read() {
+    public static Map<Room, Integer> roomReadFile() {
         Map<Room, Integer> roomList = new HashMap<>();
         File file = new File(ROOM_LEST_PATH);
         BufferedReader bufferedReader = null;
@@ -19,15 +19,14 @@ public class RoomReadFile {
         if (file.exists()) {
             try {
                 bufferedReader = new BufferedReader(new FileReader(file));
-                Room room;
+
                 int timesOfUsingValue;
-                String line = "";
-                String[] arr;
-                while ((line = bufferedReader.readLine()) != null&&line.equals("")) {
-                    arr = line.split(",");
-                    room = new Room(arr[0], Double.parseDouble(arr[1]), Double.parseDouble(arr[2]), Integer.parseInt(arr[3]), arr[4], arr[5], Integer.parseInt(arr[6]));
-                    timesOfUsingValue=Integer.parseInt(arr[7]);
-                    roomList.put(room, timesOfUsingValue);
+                String line = null;
+                while ((line = bufferedReader.readLine()) != null) {
+                    String[] arr = line.split(",");
+                    Room  room = new Room(arr[0], arr[1], Double.parseDouble(arr[2]),Double.parseDouble(arr[3]), Integer.parseInt(arr[4]), arr[5], arr[6]);
+                    timesOfUsingValue = Integer.parseInt(arr[7]);
+                    roomList.put(room,timesOfUsingValue);
 
                 }
                 bufferedReader.close();

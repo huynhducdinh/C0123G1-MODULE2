@@ -14,7 +14,9 @@ public class Regex {
         Matcher matcher = pattern.matcher(serviceName);
         return matcher.matches();
 
-    } private static final String REGEX_NAME_SERVICE = "^[A-Z][a-z]+$";
+    }
+
+    private static final String REGEX_NAME_SERVICE = "^[A-Z][a-z]+$";
 
     public static boolean checkNameService(String serviceName) {
         Pattern pattern = Pattern.compile(REGEX_NAME_SERVICE);
@@ -44,7 +46,7 @@ public class Regex {
     }
 
     //    này tháng năm sinh
-    private static final String REGEX_BIRTH = "^(([0][1-9])|3[0-1])[\\/|-](([0][0-9])|1[0-2])[\\/|-]((19((2[4-9])|([3-9][0-9])))|200[0-5])$";
+    private static final String REGEX_BIRTH = "^((0[1-9])|((1|2)[0-9])|3[0-1])[\\/|-]((0[1-9])|1[0-2])[\\/|-]((19((2[4-9])|([3-9][0-9])))|200[0-5])$";
 
     public static boolean checkBirth(String birth) {
         Pattern pattern = Pattern.compile(REGEX_BIRTH);
@@ -60,6 +62,7 @@ public class Regex {
         Matcher matcher = pattern.matcher(code);
         return matcher.matches();
     }
+
     private static final String REGEX_CODE_HO = "^(SV)(HO)\\-[0-9]{4}$";
 
     public static boolean checkCodeHo(String code1) {
@@ -67,6 +70,7 @@ public class Regex {
         Matcher matcher = pattern.matcher(code1);
         return matcher.matches();
     }
+
     private static final String REGEX_CODE_RO = "^(SV)(RO)\\-[0-9]{4}$";
 
     public static boolean checkCodeRo(String code2) {
@@ -83,28 +87,63 @@ public class Regex {
         Matcher matcher = pattern.matcher(cmnd);
         return matcher.matches();
     }
-//mã nhân viên -khách hàng
-    private static final String REGEX_ID = "^(MV-)[0-9]{0,}$";
+
+    //mã nhân viên -khách hàng
+    private static final String REGEX_ID = "^(MNV)-[0-9]{4}$";
 
     public static boolean checkId(String id) {
         Pattern pattern = Pattern.compile(REGEX_ID);
         Matcher matcher = pattern.matcher(id);
         return matcher.matches();
     }
-    private static final String REGEX_LEASE="^\\d{2}/\\d{2}/\\d{4}\\-\\d{2}(h):\\d{2}$";
+
+    private static final String REGEX_CODE = "^(MKH)-[0-9]{4}$";
+
+    public static boolean checkCode(String code) {
+        Pattern pattern = Pattern.compile(REGEX_CODE);
+        Matcher matcher = pattern.matcher(code);
+        return matcher.matches();
+    }
+
+    private static final String REGEX_LEASE = "^\\d{2}/\\d{2}/\\d{4}\\-\\d{2}(h):\\d{2}$";
+
     public static boolean checkLease(String lease) {
         Pattern pattern = Pattern.compile(REGEX_LEASE);
         Matcher matcher = pattern.matcher(lease);
         return matcher.matches();
     }
-    private static final String REGEX_ADDRESS="^[A-Z][a-z]*(\\s[A-Z][a-z]+)*$";
+
+    private static final String REGEX_ADDRESS = "^[A-Z][a-z]*(\\s[A-Z][a-z]+)*$";
+
     public static boolean checkAddress(String address) {
         Pattern pattern = Pattern.compile(REGEX_ADDRESS);
         Matcher matcher = pattern.matcher(address);
         return matcher.matches();
     }
 
-    public static void main(String[] args) {
-        CheckTrueOfFalse.checkNameService();
+    private static final String REGEX_CODE_BOOKING = "^(MBK)-[0-9]{4}$";
+
+    public static boolean checkCodeBooking(String booking) {
+        Pattern pattern = Pattern.compile(REGEX_CODE_BOOKING);
+        Matcher matcher = pattern.matcher(booking);
+        return matcher.matches();
+    }
+
+    private static final String REGEX_CODE_CUSTOMER = "^(MKH)-[0-9]{4}$";
+
+    public static boolean checkCodeCustomer(String customer) {
+        Pattern pattern = Pattern.compile(REGEX_CODE_CUSTOMER);
+        Matcher matcher = pattern.matcher(customer);
+        return matcher.matches();
+    }
+
+    static final String DATE_BOOKING = "^(((0[1-9])|[12][0-9])|3[01])[\\/|-]((0[1-9])|1[0-2])[\\/|-]([2-9]((0[2-9][3-9])|[1-9][0-9][0-9]))$";
+
+    public static boolean checkDateBooking(String date) {
+        Pattern pattern = Pattern.compile(DATE_BOOKING);
+        Matcher matcher = pattern.matcher(date);
+        return matcher.matches();
     }
 }
+
+

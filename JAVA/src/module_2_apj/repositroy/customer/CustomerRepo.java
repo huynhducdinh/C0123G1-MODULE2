@@ -12,7 +12,7 @@ public class CustomerRepo implements ICustomerRepo {
     public static void writeFileCus(List<Customer>customerList){
         CustomerWriteFile.customerWrite(CUSTOMER_LIST_PATH,customerList);
     }
-   static List<Customer> customerList = CustomerReadFile.comparators(CUSTOMER_LIST_PATH);
+   static List<Customer> customerList = CustomerReadFile.comparators();
     @Override
     public List<Customer> getAllDisplay() {
         return customerList;

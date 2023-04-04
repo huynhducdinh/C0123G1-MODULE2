@@ -26,7 +26,7 @@ public class VillaReadFile {
                     arr = line.split(",");
                     Villa villa = new Villa(arr[0],arr[1], Double.parseDouble(arr[2]),Double.parseDouble(arr[3]), Integer.parseInt(arr[4]), arr[5], arr[6], Double.parseDouble(arr[7]), Integer.parseInt(arr[8]));
                     timesOfUsingValue=Integer.parseInt(arr[9]);
-                    villaList.put(villa,0);
+                    villaList.put(villa,timesOfUsingValue);
                 }
                 bufferedReader.close();
                 fileReader.close();

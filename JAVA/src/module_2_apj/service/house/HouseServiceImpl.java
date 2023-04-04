@@ -14,17 +14,16 @@ import java.util.Set;
 
 public class HouseServiceImpl implements IHouseService {
     static IHouseRepo iHouseRepo = new HouseRepo();
-    static Scanner sc = new Scanner(System.in);
     static Map<House, Integer> houseList = iHouseRepo.displayHouse();
 
     @Override
 
     public void display() {
-        if (houseList.size() <= 0) {
-            System.out.println("Empty list");
+        if (houseList.size() == 0) {
+            System.out.println("There's nothing in this list");
         } else {
             for (Map.Entry<House, Integer> entry : houseList.entrySet()) {
-                System.out.println(entry.getKey()+":|:"+"Used "+entry.getValue());
+                System.out.println(entry.getKey()+":|:"+ entry.getValue());
             }
         }
     }

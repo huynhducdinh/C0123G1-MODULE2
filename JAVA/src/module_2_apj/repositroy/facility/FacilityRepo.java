@@ -16,7 +16,7 @@ public class FacilityRepo implements IFacilityRepo {
         FacilityWriteFile.writeFacilityFile(FACILITY_LIST_PATH, facilities);
     }
 
-    List<Facility> facilityList = FacilityReadFile.facilityList(FACILITY_LIST_PATH);
+    List<Facility> facilityList = FacilityReadFile.facilityList();
 
     @Override
     public List<Facility> getAllDisplay() {

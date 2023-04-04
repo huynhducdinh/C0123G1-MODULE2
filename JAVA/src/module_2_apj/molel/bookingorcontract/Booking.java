@@ -1,8 +1,10 @@
 package module_2_apj.molel.bookingorcontract;
 
+import org.jetbrains.annotations.NotNull;
+
 //mã bookingtxt, ngày bắt đầu, ngày kết thúc, mã khách hàng, tên dịch vụ, loại dịch vụ.//
 //của customer ( khách hàng)
-public class Booking extends BookingAndContract {
+public class Booking extends BookingAndContract implements  Comparable<Booking>{
 
 String startDate;
 String endDate;
@@ -54,10 +56,10 @@ String serviceType;
     @Override
     public String toString() {
         return "Booking3{" +
-                ", maBooking='" + codeBooking + '\'' +
+                ", codeClient='" + codeClient + '\'' +
+                ", codeBooking='" + codeBooking + '\'' +
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
-                ", maKhhachHang='" + codeClient + '\'' +
                 ", serviceName='" + serviceName + '\'' +
                 ", serviceType='" + serviceType + '\'' +
                 '}';
@@ -66,5 +68,11 @@ String serviceType;
         String COMMA= ",";
         return getCodeBooking()+COMMA+getStartDate()+COMMA+getEndDate()+COMMA+ getMaKhachHang()+COMMA+getServiceName()+COMMA+getServiceType();
 
+    }
+
+    @Override
+    public int compareTo(@NotNull Booking o) {
+//        o là tăng dần , this. là giảm dầm
+        return o.getStartDate().compareTo(this.getStartDate());
     }
 }

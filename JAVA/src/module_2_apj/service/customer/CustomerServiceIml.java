@@ -5,17 +5,19 @@ import module_2_apj.molel.person.Customer;
 import module_2_apj.repositroy.customer.CustomerRepo;
 import module_2_apj.repositroy.customer.ICustomerRepo;
 import module_2_apj.service.IService;
+import module_2_apj.util.read_file.CustomerReadFile;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class CustomerServiceIml implements ICustomerService {
     static ICustomerRepo customerRepo = new CustomerRepo();
+    static List<Customer> customerList = customerRepo.getAllDisplay();
     static Scanner sc = new Scanner(System.in);
 
     @Override
     public void display() {
-        List<Customer> customerList = customerRepo.getAllDisplay();
         for (Customer c : customerList) {
             System.out.println(c);
         }
@@ -23,52 +25,57 @@ public class CustomerServiceIml implements ICustomerService {
 
     @Override
     public void add() {
-        String name = CheckTrueOfFalse.checkName();
-        String gender = CheckTrueOfFalse.checkGender();
-        String id = CheckTrueOfFalse.inputId();
-        String birth = CheckTrueOfFalse.checkBrith();
-        String phone = CheckTrueOfFalse.checkNumberPhone();
-        String citizen = CheckTrueOfFalse.checkCitizen();
-        String email = CheckTrueOfFalse.checkEmail();
-        String guest = CheckTrueOfFalse.rank();
-        String address = CheckTrueOfFalse.checkAddresse();
-        Customer customer = new Customer(name, gender, id, birth, phone, citizen, email, guest, address);
-        customerRepo.add(customer);
-
+        try {
+            String id = checkCustomer();
+            String name = CheckTrueOfFalse.checkName();
+            String gender = CheckTrueOfFalse.checkGender();
+            String birth = CheckTrueOfFalse.checkBrith();
+            String phone = CheckTrueOfFalse.checkNumberPhone();
+            String citizen = CheckTrueOfFalse.checkCitizen();
+            String email = CheckTrueOfFalse.checkEmail();
+            String guest = CheckTrueOfFalse.rank();
+            String address = CheckTrueOfFalse.checkAddresse();
+            Customer customer = new Customer(name, gender, id, birth, phone, citizen, email, guest, address);
+            customerRepo.add(customer);
+            System.out.println("Successfully added new");
+        } catch (StringIndexOutOfBoundsException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void update() {
-
         boolean flag;
-        int customerCodeSearch;
-        do {
-            try {
-                System.out.println("Search for the code to be edited");
-                customerCodeSearch = sc.nextInt();
-                flag = true;
-            }catch(NumberFormatException e){
-                System.out.println("Not Found");
-                flag=false;
+        try {
+            String customerCodeSearch = "";
+            do {
+                try {
+                    System.out.println("Search for the code to be edited");
+                    customerCodeSearch = sc.nextLine();
+                    flag = true;
+                } catch (NumberFormatException e) {
+                    System.out.println("Not Found");
+                    flag = false;
+                }
+            } while (!flag);
+            String name = CheckTrueOfFalse.checkName();
+            String gender = CheckTrueOfFalse.checkGender();
+            String birth = CheckTrueOfFalse.checkBrith();
+            String phone = CheckTrueOfFalse.checkNumberPhone();
+            String citizen = CheckTrueOfFalse.checkCitizen();
+            String email = CheckTrueOfFalse.checkEmail();
+            String guest = CheckTrueOfFalse.rank();
+            String address = CheckTrueOfFalse.checkAddresse();
+            for (int i = 0; i < customerList.size(); i++) {
+                if (Objects.equals(customerList.get(i).getCodee(), customerCodeSearch)) {
+                    customerList.set(i, new Customer(name, gender, customerCodeSearch, birth, phone, citizen, email, guest, address));
+                    customerRepo.update(customerList);
+                    break;
+                }
             }
-        } while (!flag);
-        List<Customer> customerList = customerRepo.getAllDisplay();
-        System.out.println("enter code to edit :");
-        String codee = sc.nextLine();
-        for (int i = 0; i < customerList.size(); i++) {
-            if ((customerList.get(i).getCodee()) == codee) {
-                String name = CheckTrueOfFalse.checkName();
-                String gender = CheckTrueOfFalse.checkGender();
-                String birth = CheckTrueOfFalse.checkBrith();
-                String phone = CheckTrueOfFalse.checkNumberPhone();
-                String citizen = CheckTrueOfFalse.checkCitizen();
-                String email = CheckTrueOfFalse.checkEmail();
-                String guest = CheckTrueOfFalse.rank();
-                String address = CheckTrueOfFalse.checkAddresse();
-                customerList.set(i, new Customer(name, gender, codee, birth, phone, citizen, email, guest, address));
-                customerRepo.update(customerList);
-                break;
-            }
+            System.out.println("Update successful");
+        } catch (StringIndexOutOfBoundsException e) {
+            e.printStackTrace();
         }
     }
 
@@ -98,4 +105,21 @@ public class CustomerServiceIml implements ICustomerService {
         System.out.println("customer code not found");
     }
 
+    public static String checkCustomer() {
+        customerList = CustomerReadFile.comparators();
+        String codeCustomer;
+        boolean flag;
+        do {
+            flag = true;
+            codeCustomer = CheckTrueOfFalse.checkCustomer();
+            for (int i = 0; i < customerList.size(); i++) {
+                if (customerList.get(i).getCodee().equals(codeCustomer)){
+                    System.out.println("Mã khách hàng trùng rồi | Nhập lại--> Alike customer code | retype-->");
+                    flag=false;
+                    break;
+                }
+            }
+        }while (!flag);
+        return codeCustomer;
+    }
 }

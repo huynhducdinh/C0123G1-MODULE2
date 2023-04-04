@@ -3,7 +3,7 @@ package module_2_apj.molel.furama;
 public class Room extends Facility {
    String privateService;
 
-    public Room(String nameService, double v, double acreage, int rentalCosts, String s, String rentalType, int i) {
+    public Room() {
 
     }
 

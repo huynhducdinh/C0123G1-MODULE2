@@ -1,6 +1,7 @@
 package module_2_apj.service.room;
 
 import module_2_apj.method.CheckTrueOfFalse;
+import module_2_apj.molel.furama.House;
 import module_2_apj.molel.furama.Room;
 import module_2_apj.repositroy.room.IRoomRepo;
 import module_2_apj.repositroy.room.RoomRepo;
@@ -12,23 +13,21 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class RoomServiceImpl implements IRoomService {
-    static Scanner sc = new Scanner(System.in);
     static IRoomRepo iroomRepo = new RoomRepo();
     static Map<Room, Integer> roomList = iroomRepo.getDisplayRom();
 
     @Override
 
     public void display() {
-        if (roomList.size() <= 0) {
+        if (roomList.size() == 0) {
             System.out.println("There's nothing in this list");
+
         } else {
-            System.out.println("ROOM LIST");
             for (Map.Entry<Room, Integer> entry : roomList.entrySet()) {
                 System.out.println(entry.getKey() + ":|:" + entry.getValue());
             }
         }
     }
-
     @Override
     public void addRoom() {
         String id = CheckTrueOfFalse.checkCodeRo();

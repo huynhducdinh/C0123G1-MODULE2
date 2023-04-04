@@ -3,15 +3,15 @@ package module_2_apj.util.read_file;
 import module_2_apj.molel.bookingorcontract.Booking;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class BookingReadFile {
-    public static Set<Booking> booking3List(String path) {
+    private static final String BOOKING_LIST_PATH = "src\\module_2_apj\\data\\booking.csv";
+
+    public static Set<Booking> readBooking() {
         Set<Booking> booking3List = new TreeSet<>();
-        File file = new File(path);
+        File file = new File(BOOKING_LIST_PATH);
         FileReader fileReader = null;
         if (file.exists()) {
             try {

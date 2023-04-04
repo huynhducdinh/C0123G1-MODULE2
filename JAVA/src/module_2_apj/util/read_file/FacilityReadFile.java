@@ -7,9 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FacilityReadFile {
-    public static List<Facility> facilityList(String path) {
+    public static final String FACILITY_LIST_PATH = "src\\module_2_apj\\data\\facility.csv";
+
+    public static List<Facility> facilityList() {
         List<Facility> facilities = new ArrayList<>();
-        File file = new File(path);
+        File file = new File(FACILITY_LIST_PATH);
         FileReader fileReader = null;
         if (file.exists()) {
             try {
