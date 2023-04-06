@@ -8,16 +8,12 @@ import module_2_apj.repositroy.villa.VillaRepo;
 import module_2_apj.service.facility.FacilityServiceImpl;
 import module_2_apj.util.wrtie_file.VillaWriteFile;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class VillaServiceImpl extends Villa implements IVillaService {
     static IVillaRepo villaRepo = new VillaRepo();
     static Map<Villa, Integer> villaList = villaRepo.getAllDisplay();
     static Scanner sc = new Scanner(System.in);
-    FacilityServiceImpl facilityService = new FacilityServiceImpl();
 
     @Override
     public void display() {
@@ -44,32 +40,8 @@ public class VillaServiceImpl extends Villa implements IVillaService {
         Villa villa = new Villa(id, name, acreage, expense, sumPeople, rentalType, standard, acreages, number);
         villaList.put(villa,0);
         villaRepo.addVilla(villaList);
+        System.out.println("Villa added-->| Thêm mới thành công-->");
     }
 
-    @Override
-    public boolean checkServiceNumberForBooking(String serviceNum) {
-        Set<Villa> villaSet=villaList.keySet();
-       for (Villa villa:villaSet){
-           if (villa.getCodeService().equals(serviceNum)){
-               return true;
-           }
-       }
-        return false;
-    }
 
-    @Override
-    public void updateTimesOfUsingService(String serviceNum) {
-        Set<Villa> villaSet=villaList.keySet();
-        Villa updateVilaa=null;
-        for(Villa villa:villaSet){
-            if (villa.getCodeService().equals(serviceNum)){
-                updateVilaa=villa;
-                break;
-            }
-        }
-        int usingTimes=villaList.get(updateVilaa);
-            villaList.put(updateVilaa,usingTimes+1);
-            VillaWriteFile.writeFileVilla(villaList);
-
-    }
 }

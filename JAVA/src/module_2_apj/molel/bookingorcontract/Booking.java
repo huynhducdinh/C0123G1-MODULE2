@@ -4,15 +4,15 @@ import org.jetbrains.annotations.NotNull;
 
 //mã bookingtxt, ngày bắt đầu, ngày kết thúc, mã khách hàng, tên dịch vụ, loại dịch vụ.//
 //của customer ( khách hàng)
-public class Booking extends BookingAndContract implements  Comparable<Booking>{
-
-String startDate;
-String endDate;
-String serviceName;
-String serviceType;
+public class Booking extends BookingAndContract implements Comparable<Booking> {
+    private String startDate;
+    private String endDate;
+    private String serviceName;
+    private String serviceType;
 
     public Booking() {
     }
+
     public Booking(String maBooking, String maKhhachHang, String startDate, String endDate, String serviceName, String serviceType) {
         super(maBooking, maKhhachHang);
         this.startDate = startDate;
@@ -64,9 +64,10 @@ String serviceType;
                 ", serviceType='" + serviceType + '\'' +
                 '}';
     }
-    public String convertLine3(){
-        String COMMA= ",";
-        return getCodeBooking()+COMMA+getStartDate()+COMMA+getEndDate()+COMMA+ getMaKhachHang()+COMMA+getServiceName()+COMMA+getServiceType();
+
+    public String convertLine3() {
+        String COMMA = ",";
+        return getMaKhachHang() + COMMA + getCodeBooking() + COMMA + getStartDate() + COMMA + getEndDate() + COMMA + getServiceName() + COMMA + getServiceType();
 
     }
 

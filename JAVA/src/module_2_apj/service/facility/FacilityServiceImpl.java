@@ -17,17 +17,20 @@ import module_2_apj.service.room.IRoomService;
 import module_2_apj.service.room.RoomServiceImpl;
 import module_2_apj.service.villa.IVillaService;
 import module_2_apj.service.villa.VillaServiceImpl;
+import module_2_apj.util.read_file.HouseReadFile;
 import module_2_apj.util.read_file.RoomReadFile;
+import module_2_apj.util.read_file.VillaReadFile;
 
 import java.util.*;
 
 public class FacilityServiceImpl implements IFacilityService {
     static Scanner sc = new Scanner(System.in);
+    IFacilityRepo iFacilityRepo = new FacilityRepo();
     static IVillaService villaService = new VillaServiceImpl();
     static IHouseService houseService = new HouseServiceImpl();
     static IRoomService roomService = new RoomServiceImpl();
 
-    static Map<Facility, Integer> facilityIntegerMap = new LinkedHashMap<>();
+    static Map<Facility,Integer>facilityIntegerMap=new LinkedHashMap<>();
 
 
     public void display() {
@@ -68,7 +71,7 @@ public class FacilityServiceImpl implements IFacilityService {
                         break;
                 }
             } while (check);
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             e.printStackTrace();
         }
     }
@@ -84,21 +87,31 @@ public class FacilityServiceImpl implements IFacilityService {
 
 
     public void displaymaintenance() {
-        Set<Facility> facilitySet = facilityIntegerMap.keySet();
-        for (Facility f : facilitySet) {
-            if (facilityIntegerMap.get(f) >= 5) {
-                System.out.println(f + "USED" + facilityIntegerMap.get(f) + "times" + "Needs maintenance");
+        Map<Villa, Integer> villaIntegerMap = VillaReadFile.villaReadFile();
+        Map<House, Integer> houseIntegerMap = HouseReadFile.houseReadFile();
+        Map<Room, Integer> roomIntegerMap = RoomReadFile.roomReadFile();
+        for (Map.Entry<Room, Integer> room : roomIntegerMap.entrySet()) {
+            if (room.getValue() >= 5) {
+                facilityIntegerMap.put(room.getKey(), room.getValue());
             }
         }
-//        Map<Room,Integer>roomIntegerMap= RoomReadFile.read();
-//        for(Map.Entry<Room,Integer> room:roomIntegerMap.entrySet()){
-//            if (room.getValue()>=5){
-//                facilityIntegerMap.put(room.getKey(),room.getValue());
-//            }
-//        }
+        for (Map.Entry<Villa,Integer>villa:villaIntegerMap.entrySet()){
+            if (villa.getValue()>=5){
+                facilityIntegerMap.put(villa.getKey(),villa.getValue());
+            }
+        }
+        for (Map.Entry<House,Integer>house: houseIntegerMap.entrySet()){
+            if (house.getValue()>=5){
+                facilityIntegerMap.put(house.getKey(),house.getValue());
+            }
+        }
+        if (facilityIntegerMap.isEmpty()){
+            System.out.println("There is no service that needs maintenance--> Không có dịch vụ nào cần bảo trì");
+        }else {
+            System.out.print("List of Services which need maintenance:--> Dịch vụ cần bảo trì : --> "+facilityIntegerMap);
+
+        }
     }
-
-
 }
 
 

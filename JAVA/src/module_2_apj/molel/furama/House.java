@@ -2,9 +2,9 @@ package module_2_apj.molel.furama;
 
 // House được kế thừ từ Facility và có thêm các chức năng khác :Tiêu chuẩn phòng, Số tầng
 public class House extends Facility {
-    String roomStandard;
+  private   String roomStandard;
 
-    int NumberOfFloors;
+   private int NumberOfFloors;
 
     public House() {
 

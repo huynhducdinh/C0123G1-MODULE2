@@ -2,9 +2,9 @@ package module_2_apj.molel.bookingorcontract;
 
 public  class Contract extends BookingAndContract {
 
-    String someContracts;
-    String setMoney;
-    String sumMoney;
+   private String someContracts;
+   private String setMoney;
+   private String sumMoney;
 
     public Contract() {
     }

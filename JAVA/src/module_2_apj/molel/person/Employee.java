@@ -3,9 +3,9 @@ package module_2_apj.molel.person;
 //: Mã nhân viên, Họ tên, Ngày sinh, Giới tính, Số CMND, Số Điện Thoại, Email, Trình độ, Vị trí, lương
 public class Employee extends PersonCha {
 
-    String qualification;
-    String position;
-   double salary;
+    private String qualification;
+    private String position;
+    private double salary;
 
     public Employee() {
 
@@ -58,8 +58,9 @@ public class Employee extends PersonCha {
 
                 '}';
     }
-public String convertLine(){
-        String COMMA =",";
-        return getName()+COMMA+getGender()+COMMA+getCodee()+COMMA+ getBirth()+COMMA+ getPhone()+COMMA+ getCitizen()+COMMA+getEmail()+COMMA+getQualification()+COMMA+getPosition()+COMMA+getSalary();
-}
+
+    public String convertLine() {
+        String COMMA = ",";
+        return getName() + COMMA + getGender() + COMMA + getCodee() + COMMA + getBirth() + COMMA + getPhone() + COMMA + getCitizen() + COMMA + getEmail() + COMMA + getQualification() + COMMA + getPosition() + COMMA + getSalary();
+    }
 }

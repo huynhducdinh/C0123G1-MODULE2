@@ -17,5 +17,5 @@ public interface IFacilityRepo {
 
     void delete();
 
-    void displaymaintenance() ;
+    Map<Facility, Integer> displaymaintenance() ;
 }

@@ -13,13 +13,13 @@ public class BookingRepo implements IBookingRepo {
     public static void writeFileBook(Set<Booking> bookingList){
         BookingWriteFile.bookingWrite(BOOKING_LIST_PATH,bookingList);
     }
-     Set<Booking> bookingList= BookingReadFile.readBooking();
+//     Set<Booking> bookingList= BookingReadFile.readBooking();
 
 
     @Override
     public Set<Booking> display() {
-//        Set<Booking>bookingSet=BookingReadFile.readBooking();
-       return bookingList;
+        Set<Booking>bookingSet=BookingReadFile.readBooking();
+       return bookingSet;
     }
 
     @Override

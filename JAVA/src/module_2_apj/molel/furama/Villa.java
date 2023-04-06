@@ -3,9 +3,10 @@ package module_2_apj.molel.furama;
 
 public class Villa extends Facility {
 
-    String roomStandard;
-    double poolArea;
-    int numberOfFloors;
+    private String roomStandard;
+    private double poolArea;
+    private int numberOfFloors;
+
     public Villa() {
     }
 
@@ -57,6 +58,6 @@ public class Villa extends Facility {
 
     public String convertLine4() {
         String COMMA = ",";
-        return getCodeService()+COMMA+getNameService() + COMMA + getAcreage() + COMMA + getRentalCosts()+ COMMA + getManyPeople()+ COMMA + getRentalType()+ COMMA + getRoomStandard()+ COMMA + getPoolArea()+ COMMA + getNumberOfFloors();
+        return getCodeService() + COMMA + getNameService() + COMMA + getAcreage() + COMMA + getRentalCosts() + COMMA + getManyPeople() + COMMA + getRentalType() + COMMA + getRoomStandard() + COMMA + getPoolArea() + COMMA + getNumberOfFloors();
     }
 }

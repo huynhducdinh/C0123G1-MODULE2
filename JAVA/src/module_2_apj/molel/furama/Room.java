@@ -1,7 +1,7 @@
 package module_2_apj.molel.furama;
 
 public class Room extends Facility {
-   String privateService;
+  private String privateService;
 
     public Room() {
 

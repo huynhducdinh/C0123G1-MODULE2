@@ -3,8 +3,8 @@ package module_2_apj.molel.person;
 //Số hợp đồng, mã bookingtxt, Số tiền cọc trước, Tổng số tiền thanh toán, mã khách hàng.
 //  hợp đồng của khách hàng.
 public class Customer extends PersonCha {
-    String typeOfGuest;
-    String address;
+   private String typeOfGuest;
+   private String address;
 
 
 
